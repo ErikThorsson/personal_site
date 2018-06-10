@@ -1,5 +1,18 @@
 @import "src/theme/theme-variables";
 
+///* The navigation menu links */
+//.sidenav a {
+//  padding: 6px 8px 6px 16px;
+//  font-size: 25px;
+//  color: #818181;
+//  display: block;
+//}
+//
+///* When you mouse over the navigation links, change their color */
+//.sidenav a:hover {
+//  color: #f1f1f1;
+//}
+
 .navbar {
   margin-bottom: $spacer;
 }
@@ -8,8 +21,9 @@
   cursor: pointer;
 }
 
-.main {
-  margin-left: 17%;
+.mainBox {
+  padding: 2rem 2rem 2rem 2rem;
+  background-color: #e9ecef;
 }
 
 .sidenav {
@@ -18,29 +32,20 @@
   z-index: 1;
 }
 
-/* The navigation menu links */
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-}
-
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
 .headshot {
-  width: 100%;
+  width: 50%;
+  display:block;
+  margin:auto;
 }
 
 .contact {
-  padding: 6px 8px 6px 16px;
-  color: #818181;
-  word-wrap: break-word;
+  padding-bottom: 1rem;
 }
 
-.mobile {
-  font-size: 8px;
+.logo {
+  width: 40px;
+}
+
+.intro {
+  padding-bottom: 2rem;
 }
