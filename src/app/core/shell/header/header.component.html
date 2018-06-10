@@ -1,16 +1,12 @@
 <header>
   <nav class="col-12 row navbar navbar-expand-lg">
-    <div class="col-10 offset-1">
+    <div class="col-10 offset-1 d-none d-md-block">
       <div class="row">
         <div class="col-2">
           <a translate routerLink="/home" routerLinkActive="active"><span class="nav-item text-uppercase">Erik Orndahl</span></a>
-          <button class="navbar-toggler" type="button" aria-controls="navbar-menu"
-                  aria-label="Toggle navigation" (click)="toggleMenu()" [attr.aria-expanded]="!menuHidden">
-            <span class="navbar-toggler-icon"></span>
-          </button>
         </div>
         <div class="col-8"></div>
-          <div id="navbar-menu" class="col-2 collapse navbar-collapse float-xs-none" [ngbCollapse]="menuHidden">
+          <div id="navbar-menu" class="col-2 collapse navbar-collapse" [ngbCollapse]="menuHidden">
             <div class="col-12 navbar-nav text-center">
               <a class="col-6 nav-item text-uppercase" routerLink="/home" routerLinkActive="active">
                 <span translate>Home</span>
@@ -35,5 +31,16 @@
           </div>
       </div>
     </div>
+
+      <div class="col-12 text-center navbar-menu-mobile d-md-none">
+          <a translate routerLink="/home" routerLinkActive="active"><span class="col-4 nav-item text-uppercase name">Erik Orndahl</span></a>
+        <a class="col-4 nav-item text-uppercase" routerLink="/home" routerLinkActive="active">
+          <span translate>Home</span>
+        </a>
+        <a class="col-4 nav-item text-uppercase" routerLink="/about" routerLinkActive="active">
+          <span translate>About</span>
+        </a>
+    </div>
+
   </nav>
 </header>
