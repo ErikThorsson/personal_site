@@ -1,0 +1,14 @@
+{
+  "name": "personal_site",
+  "short_name": "personal_site",
+  "theme_color": "#488aff",
+  "background_color": "#488aff",
+  "scope": "/",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [{
+    "src": "ngx-rocket-logo.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+}

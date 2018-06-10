@@ -1,0 +1,51 @@
+.logo {
+  width: 100px;
+}
+
+q {
+  font-style: italic;
+  font-size: 1.2rem;
+  quotes: "« " " »";
+}
+
+.main {
+  margin-left: 17%;
+}
+
+.sidenav {
+  background-color: #111; /* Black */
+  position: fixed;
+  z-index: 1;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  text-decoration: none;
+  font-size: 25px;
+  display: block;
+  color: #818181;
+  padding: 6px 8px 6px 16px;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.headshot {
+  width: 100%;
+}
+
+.contact {
+  padding: 6px 8px 6px 16px;
+  color: #818181;
+  word-wrap: break-word;
+}
+
+.mobile {
+  font-size: 8px;
+}
+
+.photo {
+  width: 100%;
+}
