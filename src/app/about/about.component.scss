@@ -40,8 +40,8 @@
 
 .headshot-mobile {
   width: 100%;
-  display:block;
-  margin:auto;
+display:block;
+margin:auto;
 }
 
 .contact {
@@ -55,4 +55,26 @@
 
 .intro {
   padding-bottom: 2rem;
+}
+
+//xxxx {
+//  display:inline-block;
+//  vertical-align: -100px;
+//}
+
+.icon {
+  width: 50px;
+
+  display:inline-block;
+  vertical-align: 0px;
+
+  &.bootstrap {
+    width: 80px;
+    vertical-align: -15px;
+  }
+
+  &.mqtt {
+    width: 55px;
+    vertical-align: -10px;
+  }
 }
