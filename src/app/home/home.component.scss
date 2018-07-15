@@ -1,72 +1,52 @@
-//q {
-//  font-style: italic;
-//  font-size: 1.2rem;
-//  quotes: "« " " »";
-//}
-//.sidenav {
-//  background-color: #111; /* Black */
-//  position: fixed;
-//  z-index: 1;
-//}
-//
-///* The navigation menu links */
-//.sidenav a {
-//  text-decoration: none;
-//  font-size: 25px;
-//  display: block;
-//  color: #818181;
-//  padding: 6px 8px 6px 16px;
-//}
-//
-///* When you mouse over the navigation links, change their color */
-//.sidenav a:hover {
-//  color: #f1f1f1;
-//}
+.mainBox {
+  padding: 2rem 2rem 2rem 2rem;
+  background-color: #e9ecef;
+}
+
+.sidenav {
+  background-color: #111; /* Black */
+  position: fixed;
+  z-index: 1;
+}
 
 .headshot {
+  width: 50%;
+  display:block;
+  margin:auto;
+}
+
+.headshot-mobile {
   width: 100%;
+  display:block;
+  margin:auto;
+}
+
+.contact {
+  padding-bottom: 1rem;
+  word-wrap: break-word;
 }
 
 .logo {
   width: 40px;
 }
 
-#myVideo {
-  width:100%;
+.intro {
+  padding-bottom: 2rem;
 }
 
-.photo {
-  width: 95%;
-}
+.icon {
+  width: 50px;
 
-.mainBox {
-  padding: 2rem 2rem 0rem 2rem;
-}
+  display:inline-block;
+  vertical-align: 0px;
 
-.img-tile {
-  padding: 1rem 1rem 1rem 1rem;
-  margin-bottom: 3%;
-  background-color: #e9ecef;
-
-  &.bottom {
-    margin-bottom: 0%;
+  &.bootstrap {
+    width: 80px;
+    vertical-align: -15px;
   }
-}
 
-//.intro {
-//  padding-bottom: 2rem;
-//}
-
-.name {
-  font-size: 64px;
-}
-
-.title {
-  font-weight: bold;
-}
-
-
-.contact {
-  padding-bottom: 1rem;
-  word-wrap: break-word;
+  &.mqtt {
+    width: 55px;
+    vertical-align: -10px;
+  }
 }

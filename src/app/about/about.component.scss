@@ -1,47 +1,51 @@
-@import "src/theme/theme-variables";
-
-///* The navigation menu links */
-//.sidenav a {
-//  padding: 6px 8px 6px 16px;
-//  font-size: 25px;
-//  color: #818181;
-//  display: block;
-//}
-//
-///* When you mouse over the navigation links, change their color */
-//.sidenav a:hover {
-//  color: #f1f1f1;
-//}
-
-.navbar {
-  margin-bottom: $spacer;
+.logo {
+  width: 40px;
 }
 
-.nav-link.dropdown-toggle {
-  cursor: pointer;
-}
-
-.mainBox {
-  padding: 2rem 2rem 2rem 2rem;
+.img-tile {
+  padding: 1rem 1rem 1rem 1rem;
+  margin-bottom: 3%;
   background-color: #e9ecef;
+
+  &.bottom {
+    margin-bottom: 0%;
+  }
 }
 
-.sidenav {
-  background-color: #111; /* Black */
-  position: fixed;
-  z-index: 1;
+.img-title {
+  margin-top: 5%;
 }
 
-.headshot {
-  width: 50%;
-  display:block;
-  margin:auto;
+.tile {
+  padding: 1rem 1rem 1rem 1rem;
+  margin-bottom: 3%;
+  background-color: #e9ecef;
+
+  &.bottom {
+    margin-bottom: 0%;
+  }
 }
 
-.headshot-mobile {
-  width: 100%;
-display:block;
-margin:auto;
+.intro {
+  padding-bottom: 2rem;
+}
+
+.vid {
+  width:80%;
+  height: 600px;
+}
+
+.box-img {
+  width:40%
+}
+
+.code {
+  font-size: 10px;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .contact {
@@ -49,32 +53,20 @@ margin:auto;
   word-wrap: break-word;
 }
 
-.logo {
-  width: 40px;
+/* Youtube Reflexive */
+.vid-container {
+  width: 80%;
+  position: relative;
+  padding-bottom: 50%;
+  padding-top: 35px; height: 0; overflow: hidden;
 }
 
-.intro {
-  padding-bottom: 2rem;
-}
-
-//xxxx {
-//  display:inline-block;
-//  vertical-align: -100px;
-//}
-
-.icon {
-  width: 50px;
-
-  display:inline-block;
-  vertical-align: 0px;
-
-  &.bootstrap {
-    width: 80px;
-    vertical-align: -15px;
-  }
-
-  &.mqtt {
-    width: 55px;
-    vertical-align: -10px;
-  }
+.vid-container iframe,
+.vid-container object,
+.vid-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }

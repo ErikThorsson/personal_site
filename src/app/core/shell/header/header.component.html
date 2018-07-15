@@ -1,7 +1,8 @@
-<nav class="col-12 navbar navbar-expand-lg">
+<nav class="col-12 navbar navbar-expand-lg no-gutters">
   <div class="col-10 offset-1 d-none d-xl-block">
     <div class="row">
       <div class="col-2">
+        <!--Erik Orndahl-->
         <a translate routerLink="/home" routerLinkActive="active"><span class="nav-item text-uppercase">Erik Orndahl</span></a>
       </div>
       <div class="col-8"></div>
@@ -11,7 +12,7 @@
             <span translate>Home</span>
           </a>
           <a class="col-6 nav-item text-uppercase" routerLink="/about" routerLinkActive="active">
-            <span translate>About</span>
+            <span translate>Blog</span>
           </a>
           <!--<a class="col-4 nav-item text-uppercase" routerLink="/resume" routerLinkActive="active">-->
           <!--<span translate>Resume</span>-->
@@ -31,15 +32,17 @@
     </div>
   </div>
 
-      <div class="col-12 text-center navbar-menu-mobile no-gutters d-xl-none">
-        <div class="col-8 offset-2">
-          <a translate routerLink="/home" routerLinkActive="active"><span class="col-4 nav-item text-uppercase name">Erik Orndahl</span></a>
-          <a class="col-4 nav-item text-uppercase" routerLink="/home" routerLinkActive="active">
-            <span translate>Home</span>
-          </a>
-          <a class="col-4 nav-item text-uppercase" routerLink="/about" routerLinkActive="active">
-            <span translate>About</span>
-          </a>
+      <div class="col-12 text-center d-xl-none">
+        <div class="col-12">
+          <a translate routerLink="/home" routerLinkActive="active"><span class="col-4 nav-item-mobile text-uppercase">Erik Orndahl</span></a>
+          <!--<div class="row col-8 offset-2 text-center">-->
+            <a class="col-4 nav-item-mobile text-uppercase " routerLink="/home" routerLinkActive="active">
+              <span translate>Home</span>
+            </a>
+            <a class="col-4 nav-item-mobile text-uppercase" routerLink="/about" routerLinkActive="active">
+              <span translate>Blog</span>
+            </a>
+          <!--</div>-->
         </div>
     </div>
 
