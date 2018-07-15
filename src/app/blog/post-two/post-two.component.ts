@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from '@env/environment';
+import { environment } from '../../../environments/environment';
 
 @Component({
-  selector: 'app-blog-postOne',
+  selector: 'app-blog-postTwo',
   templateUrl: './post-two.component.html',
-  styleUrls: ['./post-two.component.scss']
-})
+    styleUrls: ['../blog.component.scss']})
 export class PostTwoComponent implements OnInit {
 
   version: string = environment.version;
@@ -13,11 +12,4 @@ export class PostTwoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() { }
-
-  getNavHeight(): object {
-    // Actual space available in navigator
-    const actualHeight = window.innerHeight;
-    let style: Object;
-    return style = { 'height': '63%', 'width': '100%'};
-  }
 }
