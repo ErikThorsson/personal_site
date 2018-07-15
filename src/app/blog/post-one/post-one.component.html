@@ -1,38 +1,38 @@
 <div class="row col-12 no-gutters text-center intro">
-<div class="col-8 offset-2">
-  <!--<span class="name">Erik Orndahl</span>-->
-  <!--<br>-->
-  <span>Automate Everything.</span>
-</div>
+    <div class="col-8 offset-2">
+        <span>Automate Everything.</span>
+    </div>
 </div>
 
 <div class="row col-12 no-gutters text-center mainBox">
 
-  <br><br>
-  <div class="col-12 text-center">
-    <div class="col-12 tile">
-      <div class="text-left">June 23, 2018</div>
-      <header class="title">Explorations with the Intel RealSense D415 depth camera.</header>
-      <span><br>Unfiltered depth video in the coffee shop.</span>
-      <div class="col-10 offset-1 vid-container">
-        <iframe class ="vid" src="https://www.youtube.com/embed/mXSlDmlVsXc"
-                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-        </iframe>
-      </div>
-      <br>
-      <div class="col-12 col-lg-10 offset-lg-1 text-left">
-        <br>
-        Here we have a generic video feed from the camera using the camera's own software. You can see some noise
-        in the first half of the video before I switch to high accuracy mode which creates more black holes with 0 depth
-        but the ones that are returned have higher confidence.
-        <br><br>
-        This isn't too exciting though as this camera is made for devs...
-        so lets crack the code open and make some custom software with the RealSense sdk and opencv using the python wrapper!
-        This is the main loop where we can separate the depth frame from the RGB frame for post processing.
-      </div>
-      <br>
-      <div class="col-12 col-lg-6 offset-lg-3 text-left">
-      <blockquote><pre><code class="code">
+    <br><br>
+    <div class="col-12 text-center">
+        <div class="col-12 tile">
+            <div class="text-left">June 23, 2018</div>
+            <header class="title">Explorations with the Intel RealSense D415 Depth Camera.</header>
+            <span><br>Unfiltered depth video in the coffee shop.</span>
+            <div class="col-6 offset-3">
+                <div class="vid-container">
+                    <iframe src="https://www.youtube.com/embed/mXSlDmlVsXc"
+                            frameborder="0" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            <br>
+            <div class="col-12 col-lg-10 offset-lg-1 text-left">
+                <br>
+                Here we have a generic video feed from the camera using the camera's own software. You can see some noise
+                in the first half of the video before I switch to high accuracy mode which creates more black holes with 0 depth
+                but the ones that are returned have higher confidence.
+                <br><br>
+                This isn't too exciting though as this camera is made for devs...
+                so lets crack the code open and make some custom software with the RealSense sdk and opencv using the python wrapper!
+                This is the main loop where we can separate the depth frame from the RGB frame for post processing.
+            </div>
+            <br>
+            <div class="col-12 col-lg-6 offset-lg-3 text-left">
+                <blockquote><pre><code class="code">
       import pyrealsense2 as rs
       import cv2 as cv
       import numpy as np
@@ -67,17 +67,17 @@
           finally:
               pipeline.stop()
       </code></pre></blockquote></div>
-      <br>
-      <div class="col-12 col-lg-10 offset-lg-1 text-left">
-        This next method filters the image using the depth values. The depth image's data is taken from its numpy array and then the
-        pixel depth value is found using a constant from the sdk.
-        <br><br>
-        We assign white pixels to any depth value that is .6 in above the floor to remove noise. What is considered the floor
-        is painted black. We skip every 5 pixels to speed up the processing.
-      </div>
-      <br>
-      <div class="col-12 col-lg-6 offset-lg-3 text-left">
-        <blockquote><pre><code class="code">
+            <br>
+            <div class="col-12 col-lg-10 offset-lg-1 text-left">
+                This next method filters the image using the depth values. The depth image's data is taken from its numpy array and then the
+                pixel depth value is found using a constant from the sdk.
+                <br><br>
+                We assign white pixels to any depth value that is .6 in above the floor to remove noise. What is considered the floor
+                is painted black. We skip every 5 pixels to speed up the processing.
+            </div>
+            <br>
+            <div class="col-12 col-lg-6 offset-lg-3 text-left">
+                <blockquote><pre><code class="code">
           def filter_depth(depth_image, color_image):
               DEPTH_SCALE = .0010000000474974513
               #box around objects for faster processing
@@ -100,15 +100,15 @@
                           color_image[y][x] = [255,255,255] #white
               return color_image
       </code></pre></blockquote></div>
-      <br>
-      <div class="col-12 col-lg-10 offset-lg-1 text-left">
-        We want to further filter the image now though. so we will be using some opencv. Our filtering into white and black
-        will make it easier to find object outlines, or contours.
-        If we don't skip pixels the above code will find contours of all white shapes and highlight around object "blobs".
-        Otherwise, it will create a cool neon circle effect around the white pixels.
-      </div>
-        <div class="col-12 col-lg-6 offset-lg-3 text-left">
-          <blockquote><pre><code class="code">
+            <br>
+            <div class="col-12 col-lg-10 offset-lg-1 text-left">
+                We want to further filter the image now though. so we will be using some opencv. Our filtering into white and black
+                will make it easier to find object outlines, or contours.
+                If we don't skip pixels the above code will find contours of all white shapes and highlight around object "blobs".
+                Otherwise, it will create a cool neon circle effect around the white pixels.
+            </div>
+            <div class="col-12 col-lg-6 offset-lg-3 text-left">
+                <blockquote><pre><code class="code">
             # find all the 'white' shapes in the image
             lower = np.array([255, 255, 255])
             upper = np.array([255, 255, 255])
@@ -122,20 +122,22 @@
                 # draw the contour and show it
                 cv.drawContours(image, [c], -1, (0, 255, 0), 2)
       </code></pre></blockquote></div>
-      <span><br>Looking at the depth of a box through our filter.</span>
-      <div class="col-10 offset-1 vid-container">
-        <iframe src="https://www.youtube.com/embed/VNaVkOVCamM"
-                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-        </iframe>
-      </div>
-      <br><br>
-      <div class="col-12 col-lg-10 offset-lg-1 text-left">
-        Next we can add rudimentary object detection and counting using an image recognition library called sci-kit.
-        This library will attempt to find "blobs", and then our next function will try to group them by radius size 25% of
-        each other.
-      </div>
-        <div class="col-12 col-lg-6 offset-lg-3 text-left">
-        <blockquote><pre><code class="code">
+            <span><br>Looking at the depth of a box through our filter.</span>
+            <div class="col-6 offset-3">
+                <div class="vid-container">
+                    <iframe src="https://www.youtube.com/embed/VNaVkOVCamM"
+                            frameborder="0" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            <br><br>
+            <div class="col-12 col-lg-10 offset-lg-1 text-left">
+                Next we can add rudimentary object detection and counting using an image recognition library called sci-kit.
+                This library will attempt to find "blobs", and then our next function will try to group them by radius size 25% of
+                each other.
+            </div>
+            <div class="col-12 col-lg-6 offset-lg-3 text-left">
+                <blockquote><pre><code class="code">
           from math import sqrt
           from skimage.feature import blob_dog, blob_log, blob_doh
           from skimage.color import rgb2gray
@@ -204,36 +206,40 @@
           result.append(temp)
           return result
       </code></pre></blockquote></div>
-      <span><br>ReaSense box and inner package --> Filtered detection.</span><br>
-      <img class="box-img centered" src="rs-save-to-disk-output-Color.png"/>
-      <img class="box-img centered" src="blobs.png"/>
-      <br>
-      <div class="col-12 col-lg-10 offset-lg-1 text-left">
-        <br>
-        [[37.96250624970064, 37.96250624970064]]
-        2 objects of close radius to 37.96250624970064 found.
-      </div>
+            <span><br>ReaSense box and inner package --> Filtered detection.</span><br>
+            <div class="col-6 offset-3">
+                <div class="row">
+                    <img class="box-img col-6" src="rs-save-to-disk-output-Color.png"/>
+                    <img class="box-img col-6" src="blobs.png"/>
+                </div>
+            </div>
+            <br>
+            <div class="col-12 col-lg-10 offset-lg-1 text-left">
+                <br>
+                [[37.96250624970064, 37.96250624970064]]
+                2 objects of close radius to 37.96250624970064 found.
+            </div>
+        </div>
+        <div class="col-12 tile bottom">
+            <a href="https://github.com/ErikThorsson" class="col-12">https://github.com/ErikThorsson</a>
+        </div>
     </div>
-    <div class="col-12 tile bottom">
-      <a href="https://github.com/ErikThorsson" class="col-12">https://github.com/ErikThorsson</a>
-    </div>
-  </div>
 </div>
 
 <div class="col-12 row contact">
-  <div class="col-4 text-center">
-    <br>
-    eorndahl@gmail.com
-  </div>
-  <div class="col-4 text-center">
-    <br>
-    404-550-5358
-  </div>
-  <div class="col-4 text-center">
-    <br>
-    Powered by <a href="https://github.com/ngx-rocket">ngX-rocket</a>
-    <img class="logo" src="ngx-rocket-logo.png" alt="angular logo"/>
-  </div>
+    <div class="col-4 text-center">
+        <br>
+        eorndahl@gmail.com
+    </div>
+    <div class="col-4 text-center">
+        <br>
+        404-550-5358
+    </div>
+    <div class="col-4 text-center">
+        <br>
+        Powered by <a href="https://github.com/ngx-rocket">ngX-rocket</a>
+        <img class="logo" src="ngx-rocket-logo.png" alt="angular logo"/>
+    </div>
 </div>
 
 

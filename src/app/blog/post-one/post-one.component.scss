@@ -1,0 +1,71 @@
+.logo {
+  width: 40px;
+}
+
+.img-tile {
+  padding: 1rem 1rem 1rem 1rem;
+  margin-bottom: 3%;
+  background-color: #e9ecef;
+
+  &.bottom {
+    margin-bottom: 0%;
+  }
+}
+
+.img-title {
+  margin-top: 5%;
+}
+
+.tile {
+  padding: 1rem 1rem 1rem 1rem;
+  margin-bottom: 3%;
+  background-color: #e9ecef;
+
+  &.bottom {
+    margin-bottom: 0%;
+  }
+}
+
+.intro {
+  padding-bottom: 2rem;
+}
+
+.vid {
+  height: 20%;
+}
+
+.box-img {
+  height:60%
+}
+
+.code {
+  font-size: 10px;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.contact {
+  padding-bottom: 1rem;
+  word-wrap: break-word;
+}
+
+
+/* Youtube Reflexive */
+.vid-container {
+    position: relative;
+ 	padding-bottom: 56.25%; /* 16:9 */
+ 	padding-top: 25px;
+ 	height: 0;
+}
+
+.vid-container iframe{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
