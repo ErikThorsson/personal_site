@@ -13,12 +13,17 @@
             <header class="title">Explorations with the Intel RealSense D415 Depth Camera.</header>
             <span><br>Unfiltered depth video in the coffee shop.</span>
             <div class="col-6 offset-3">
-                <div class="vid-container">
+                <div class="vid-container d-none d-md-block">
                     <iframe src="https://www.youtube.com/embed/mXSlDmlVsXc"
                             frameborder="0" allowfullscreen>
                     </iframe>
                 </div>
             </div>
+          <div class="vid-container d-md-none">
+            <iframe src="https://www.youtube.com/embed/mXSlDmlVsXc"
+                    frameborder="0" allowfullscreen>
+            </iframe>
+          </div>
             <br>
             <div class="col-12 col-lg-10 offset-lg-1 text-left">
                 <br>
@@ -123,13 +128,18 @@
                 cv.drawContours(image, [c], -1, (0, 255, 0), 2)
       </code></pre></blockquote></div>
             <span><br>Looking at the depth of a box through our filter.</span>
-            <div class="col-6 offset-3">
+            <div class="col-6 offset-3 d-none d-md-block">
                 <div class="vid-container">
                     <iframe src="https://www.youtube.com/embed/VNaVkOVCamM"
                             frameborder="0" allowfullscreen>
                     </iframe>
                 </div>
             </div>
+          <div class="vid-container d-md-none">
+            <iframe src="https://www.youtube.com/embed/VNaVkOVCamM"
+                    frameborder="0" allowfullscreen>
+            </iframe>
+          </div>
             <br><br>
             <div class="col-12 col-lg-10 offset-lg-1 text-left">
                 Next we can add rudimentary object detection and counting using an image recognition library called sci-kit.
@@ -209,10 +219,14 @@
             <span><br>ReaSense box and inner package --> Filtered detection.</span><br>
             <div class="col-6 offset-3">
                 <div class="row">
-                    <img class="box-img col-6" src="rs-save-to-disk-output-Color.png"/>
-                    <img class="box-img col-6" src="blobs.png"/>
+                  <img class="box-img col-6 d-none d-md-block" src="assets/rs-save-to-disk-output-Color.png"/>
+                  <img class="box-img col-6 d-none d-md-block" src="assets/blobs.png"/>
                 </div>
             </div>
+          <div class="row">
+            <img class="box-img col-6 d-md-none" src="assets/rs-save-to-disk-output-Color.png"/>
+            <img class="box-img col-6 d-md-none" src="assets/blobs.png"/>
+          </div>
             <br>
             <div class="col-12 col-lg-10 offset-lg-1 text-left">
                 <br>
@@ -231,14 +245,11 @@
         <a href="https://github.com/ErikThorsson" class="col-12">https://github.com/ErikThorsson</a>
     </div>
     <div class="col-3 text-center">
-        <img class="icon linked" src="linked.png"><a href="www.linkedin.com/in/erik-orndahl-170633116"> LinkedIn</a>
+      <img class="icon linked" src="linked.png"><a href="https://linkedin.com/in/erik-orndahl-170633116"> LinkedIn</a>
     </div>
     <div class="col-3 text-center">
         Powered by <a href="https://github.com/ngx-rocket">ngX-rocket</a>
         <img class="logo" src="ngx-rocket-logo.png" alt="angular logo"/>
     </div>
 </div>
-
-
-
-
+<router-outlet></router-outlet>

@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { Route } from '@app/core';
+import {BlogComponent} from "@app/blog/blog.component";
+import {PostOneComponent} from "@app/blog/post-one/post-one.component";
+import {PostTwoComponent} from "@app/blog/post-two/post-two.component";
+import {HomeComponent} from "@app/home/home.component";
 
 const routes: Routes = [
     Route.withShell([
-        { path: 'blog', loadChildren: 'app/blog/blog.module#BlogModule' },
-        { path: 'postOne', loadChildren: 'app/blog/post-one/post-one.module#PostOneModule' },
-        { path: 'postTwo', loadChildren: 'app/blog/post-two/post-two.module#PostTwoModule' },
-        { path: 'portfolio', loadChildren: 'app/portfolio/portfolio.module#PortfolioModule' }
-    ]),
-    // Fallback when no prior route is matched
-    { path: '**', redirectTo: '', pathMatch: 'full' }
+        { path: 'blog', component: BlogComponent },
+        { path: 'postOne', component: PostOneComponent },
+        { path: 'postTwo', component: PostTwoComponent },
+        { path: 'home', component: HomeComponent },
+        { path: '', redirectTo: '/home', pathMatch: 'full'}
+    ])
 ];
 
 @NgModule({
@@ -18,4 +21,4 @@ const routes: Routes = [
     exports: [RouterModule],
     providers: []
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -13,11 +13,4 @@ export class BlogComponent implements OnInit {
   constructor() { }
 
   ngOnInit() { }
-
-  getNavHeight(): object {
-    // Actual space available in navigator
-    const actualHeight = window.innerHeight;
-    let style: Object;
-    return style = { 'height': '63%', 'width': '100%'};
-  }
 }

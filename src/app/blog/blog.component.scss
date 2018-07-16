@@ -26,6 +26,18 @@
   }
 }
 
+.loop-img {
+  width: 50%;
+  display:block;
+  margin:auto;
+
+  &.mobile {
+    width: 100%;
+    display: block;
+    margin: auto;
+  }
+}
+
 .intro {
   padding-bottom: 2rem;
 }

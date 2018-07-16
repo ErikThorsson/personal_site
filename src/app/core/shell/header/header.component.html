@@ -2,11 +2,10 @@
   <div class="col-10 offset-1 d-none d-xl-block">
     <div class="row">
       <div class="col-2">
-        <!--Erik Orndahl-->
         <a translate routerLink="/home" routerLinkActive="active"><span class="nav-item text-uppercase">Erik Orndahl</span></a>
       </div>
       <div class="col-8"></div>
-      <div id="navbar-menu" class="col-2 collapse navbar-collapse" [ngbCollapse]="menuHidden">
+      <div class="col-2">
         <div class="col-12 navbar-nav text-center">
           <a class="col-6 nav-item text-uppercase" routerLink="/home" routerLinkActive="active">
             <span translate>Home</span>
@@ -14,36 +13,21 @@
           <a class="col-6 nav-item text-uppercase" routerLink="/blog" routerLinkActive="active">
             <span translate>Blog</span>
           </a>
-          <!--<a class="col-4 nav-item text-uppercase" routerLink="/postOne" routerLinkActive="active">-->
-          <!--<span translate>Resume</span>-->
-          <!--</a>-->
         </div>
-        <!--<div class="navbar-nav ml-auto">-->
-        <!--<div class="nav-item" ngbDropdown placement="bottom-right">-->
-        <!--<a id="language-dropdown" class="nav-link" ngbDropdownToggle>{{currentLanguage}}</a>-->
-        <!--<div ngbDropdownMenu aria-labelledby="language-dropdown">-->
-        <!--<button class="dropdown-item" *ngFor="let language of languages" (click)="setLanguage(language)">-->
-        <!--{{language}}-->
-        <!--</button>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
       </div>
     </div>
   </div>
 
-      <div class="col-12 text-center d-xl-none">
-        <div class="col-12">
-          <a translate routerLink="/home" routerLinkActive="active"><span class="col-4 nav-item-mobile text-uppercase">Erik Orndahl</span></a>
-          <!--<div class="row col-8 offset-2 text-center">-->
-            <a class="col-4 nav-item-mobile text-uppercase " routerLink="/home" routerLinkActive="active">
-              <span translate>Home</span>
-            </a>
-            <a class="col-4 nav-item-mobile text-uppercase" routerLink="/about" routerLinkActive="active">
-              <span translate>Blog</span>
-            </a>
-          <!--</div>-->
-        </div>
+  <div class="col-12 text-center d-xl-none">
+    <div class="col-12">
+      <a translate routerLink="/home" routerLinkActive="active"><span class="col-4 nav-item-mobile text-uppercase">Erik Orndahl</span></a>
+      <a class="col-4 nav-item-mobile text-uppercase" routerLink="/home" routerLinkActive="active">
+        <span translate>Home</span>
+      </a>
+      <a class="col-4 nav-item-mobile text-uppercase" routerLink="/blog" routerLinkActive="active">
+        <span translate>Blog</span>
+      </a>
     </div>
+  </div>
 
 </nav>
