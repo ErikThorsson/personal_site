@@ -1,17 +1,3 @@
-.img-tile {
-  padding: 1rem 1rem 1rem 1rem;
-  margin-bottom: 3%;
-  background-color: #e9ecef;
-
-  &.bottom {
-    margin-bottom: 0%;
-  }
-}
-
-.img-title {
-  margin-top: 5%;
-}
-
 .tile {
   padding: 1rem 1rem 1rem 1rem;
   margin-bottom: 3%;
@@ -22,7 +8,7 @@
   }
 }
 
-.loop-img {
+.img {
   width: 50%;
   display:block;
   margin:auto;

@@ -4,8 +4,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
 import { HomeComponent } from './home.component';
-import { QuoteService } from './quote.service';
-import {RouterModule} from "@angular/router";
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   imports: [
@@ -19,7 +18,6 @@ import {RouterModule} from "@angular/router";
     HomeComponent
   ],
   providers: [
-    QuoteService
   ]
 })
 export class HomeModule { }

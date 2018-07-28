@@ -1,0 +1,21 @@
+.contact {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  word-wrap: break-word;
+}
+
+.icon {
+  width: 50px;
+
+  display:inline-block;
+  vertical-align: 0px;
+
+  &.linked {
+    width: 25px;
+    vertical-align: -5px;
+  }
+}
+
+.logo {
+  width: 40px;
+}
