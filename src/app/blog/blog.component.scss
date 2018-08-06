@@ -20,6 +20,46 @@
   }
 }
 
+.loop {
+  width: 30%;
+  display:block;
+  margin:auto;
+
+  &.mobile {
+    width: 100%;
+    display: block;
+    margin: auto;
+  }
+}
+
+.musk {
+  width: 15%;
+  display:block;
+  margin:auto;
+
+  &.mobile {
+    width: 50%;
+    display: block;
+    margin: auto;
+  }
+}
+
+.wizards {
+  width: 20%;
+  display:block;
+  margin:auto;
+
+  &.mobile {
+    width: 50%;
+    display: block;
+    margin: auto;
+  }
+}
+
+.spreadsheet-large {
+  width: 250%;
+}
+
 .vid {
   height: 20%;
 }
@@ -70,3 +110,6 @@
   }
 }
 
+p {
+  text-indent: 2em;
+}
