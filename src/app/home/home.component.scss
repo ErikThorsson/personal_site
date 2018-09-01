@@ -20,6 +20,10 @@
   }
 }
 
+.intro {
+  margin-left: -4%;
+}
+
 .icon {
   width: 50px;
 
@@ -67,17 +71,12 @@ p {
 
 li {
   display: flex;
-  justify-content:center;
-  align-content:center;
-  flex-direction:column; /* column | row */
 }
 
 td {
   border: none;
   text-align:center;
   margin: 1rem 1rem 1rem 1rem;
-  //margin: 10px 10px 10px 10px;
-  //width: 120px;
 }
 
 .skillBox{
@@ -97,14 +96,18 @@ td {
   background-color: black;
 }
 
-.button:hover {
-  box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1); /* light overlay */
+// only animate on screens that are ~tablet and above. not mobile
+@media only screen and (min-width: 1000px) {
+  .button:hover {
+    box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1); /* light overlay */
+  }
 }
-.button:active {
-  //border-top-width: 2px; /* add this so it gets 'pushed down' */
-  //border-bottom-width: 1px;
-  box-shadow: 0px 2px 0px rgba(31, 36, 78, 1), 0px 2px 4px rgba(0, 0, 0, .9);
-  top: 6px;
-  transform: scale(0.9) translateY(3px);
+
+@media only screen and (min-width: 1000px) {
+  .button:active {
+    box-shadow: 0px 2px 0px rgba(31, 36, 78, 1), 0px 2px 4px rgba(0, 0, 0, .9);
+    top: 6px;
+    transform: scale(0.9) translateY(3px);
+  }
 }
 

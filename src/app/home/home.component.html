@@ -9,11 +9,11 @@
       <br>
       <div id="demo" class="text-center">Atlanta, GA</div>
     </div>
-  <div class="col-8">
+  <div class="intro col-8">
     <p>
     Erik is a full stack developer with experience developing and maintaining Spring Boot APIs hosted on AWS, Angular web apps, Python applications,
     large-scale scripting efforts, and database administration and maintenance across various data stores. He is passionate and focused towards finding effective,
-      efficient, and novel solutions to problems at hand. He considers himself supportive and team oriented with an eye for detail and a discipline for testing.
+      efficient, and novel solutions to problems at hand.
     </p>
   </div>
   </div>
@@ -44,7 +44,10 @@
 
   <div class="row col-12 no-gutters tile bottom">
 
-    <div class="col-6 offset-3">
+    <div class="col-6 offset-3 d-none d-md-block">
+      <button class="button col-4 offset-4 text-center"(click)="showResume()">Click for Resume</button>
+    </div>
+    <div class="col-10 offset-1 d-md-none">
       <button class="button col-4 offset-4 text-center"(click)="showResume()">Click for Resume</button>
     </div>
 
