@@ -1,10 +1,10 @@
 <nav class="col-12 navbar navbar-expand-lg no-gutters">
   <div class="col-10 offset-1 d-none d-xl-block">
     <div class="row">
-      <div class="col-2">
-        <a translate routerLink="/home" routerLinkActive="active"><span class="nav-item text-uppercase">Erik Orndahl</span></a>
+      <div class="col-4">
+        <div class="time">{{serverTime  | date: 'medium'}}</div>
       </div>
-      <div class="col-8"></div>
+      <div class="col-6"></div>
       <div class="col-2">
         <div class="col-12 navbar-nav text-center">
           <a class="col-6 nav-item text-uppercase" routerLink="/home" routerLinkActive="active">
@@ -20,7 +20,7 @@
 
   <div class="col-12 text-center d-xl-none">
     <div class="col-12">
-      <a translate routerLink="/home" routerLinkActive="active"><span class="col-4 nav-item-mobile text-uppercase">Erik Orndahl</span></a>
+      <div class="time col-4 nav-item-mobile">{{serverTime  | date: 'medium'}}</div>
       <a class="col-4 nav-item-mobile text-uppercase" routerLink="/home" routerLinkActive="active">
         <span translate>Home</span>
       </a>
@@ -33,7 +33,7 @@
 </nav>
 
 <div class="row col-12 no-gutters text-center intro">
-  <div class="col-8 offset-2">
+  <div class="header col-8 offset-2">
     <span>Automate.</span>
   </div>
 </div>

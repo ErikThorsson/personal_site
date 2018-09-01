@@ -32,18 +32,6 @@
   }
 }
 
-.musk {
-  width: 15%;
-  display:block;
-  margin:auto;
-
-  &.mobile {
-    width: 50%;
-    display: block;
-    margin: auto;
-  }
-}
-
 .wizards {
   width: 20%;
   display:block;
@@ -57,15 +45,11 @@
 }
 
 .spreadsheet-large {
-  width: 250%;
+  width: 200%;
 }
 
 .vid {
   height: 20%;
-}
-
-.box-img {
-  height:60%
 }
 
 .code {

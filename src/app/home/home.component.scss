@@ -1,12 +1,17 @@
-.mainBox {
-  padding: 2rem 2rem 2rem 2rem;
+.tile {
+  padding: 1rem 1rem 1rem 1rem;
   background-color: #e9ecef;
+
+  &.bottom {
+    margin-bottom: 0%;
+  }
 }
 
 .headshot {
   width: 50%;
   display:block;
   margin:auto;
+  border-radius: 50%;
 
   &.mobile {
     width: 100%;
@@ -41,8 +46,65 @@
   font-weight: bold;
 }
 
+.skillTable {
+  margin-right: 50px;
+}
+
 .experience-box{
   li{
     margin-left: 20px;
   }
 }
+
+p {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+li {
+  display: flex;
+  justify-content:center;
+  align-content:center;
+  flex-direction:column; /* column | row */
+}
+
+td {
+  border: none;
+  text-align:center;
+  margin: 1rem 1rem 1rem 1rem;
+  //margin: 10px 10px 10px 10px;
+  //width: 120px;
+}
+
+.skillBox{
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  border: 0;
+  line-height: 2.5;
+  padding: 0 20px;
+  font-size: 1rem;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 10px;
+  background-color: black;
+}
+
+.button:hover {
+  box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1); /* light overlay */
+}
+.button:active {
+  //border-top-width: 2px; /* add this so it gets 'pushed down' */
+  //border-bottom-width: 1px;
+  box-shadow: 0px 2px 0px rgba(31, 36, 78, 1), 0px 2px 4px rgba(0, 0, 0, .9);
+  top: 6px;
+  transform: scale(0.9) translateY(3px);
+}
+
