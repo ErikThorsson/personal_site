@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     ngOnInit() {
         this.innerWidth = window.innerWidth;
         this.reactiveDesign();
+        // this.skillBoxMobile();
     }
 
     @HostListener('window:resize', ['$event'])
@@ -38,12 +39,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
 
     reactiveDesign() {
-        this.skillBox = new Array();
+        this.skillBoxMobile();
+        // this.skillBox = new Array();
         if (this.innerWidth > 1000) {
             this.skillBoxDesktop();
         } else {
             this.skillBoxMobile();
-            this.showIt = true;
+        //     this.showIt = true;
         }
     }
 
@@ -57,8 +59,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.Python = 'Python <i class="fab fa-python fa-3x"></i>'
         this.HTML5 = 'HTML5 <i class="fab fa-html5 fa-3x"></i>'
         this.CSS3 = 'CSS3 <i class="fab fa-css3 fa-3x"></i>'
-        this.skillBox[0] = new Array(this.Java, this.Python, this.Spring, this.AWS, this.RealSense);
-        this.skillBox[1] = new Array(this.Angular, this.MQTT, this.HTML5, this.CSS3);
+        // this.skillBox[0] = new Array(this.Java, this.Python, this.Spring, this.AWS, this.RealSense);
+        // this.skillBox[1] = new Array(this.Angular, this.MQTT, this.HTML5, this.CSS3);
+        this.skillBox[0] = new Array(this.Java, this.Python, this.Spring);
+        this.skillBox[1] = new Array(this.AWS, this.RealSense, this.Angular);
+        this.skillBox[2] = new Array(this.MQTT, this.HTML5, this.CSS3);
     }
 
     skillBoxMobile() {
@@ -125,6 +130,17 @@ export class HomeComponent implements OnInit, AfterViewInit {
         let style: Object = null;
         if (this.innerWidth < 1000) {
             style = {'font-size': '200%'};
+        }
+        return style;
+    }
+
+    getPadding() {
+        this.innerWidth = window.innerWidth;
+        let style: Object = null;
+        if (this.innerWidth < 1000) {
+            style = {'padding-bottom' : '14rem'};
+        } else {
+            style = {'padding-bottom' : '6rem'};
         }
         return style;
     }

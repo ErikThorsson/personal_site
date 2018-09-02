@@ -11,22 +11,20 @@
 }
 
 .headshot {
-  width: 50%;
-  display:block;
-  margin:auto;
+  width: 25%;
+  display: block;
+  margin: auto;
   border-radius: 50%;
+}
 
-  &.mobile {
+@media only screen and (max-width: 1000px) {
+  .headshot  {
     width: 75%;
   }
 }
 
 .double-font-size {
   font-size: 200%;
-}
-
-.mobile-text {
-  margin-top: -200px;
 }
 
 .icon {
@@ -63,15 +61,15 @@
 .skillBox{
   display: flex;
   justify-content: center;
+  padding-bottom: 2rem;
 }
 
+//.mobile-text {
+//  margin-top: -200px;
+//}
 
 .experience-title {
   font-weight: bold;
-}
-
-.skillTable {
-  margin-right: 50px;
 }
 
 .experience-box{

@@ -1,71 +1,68 @@
-<div class="row col-12 no-gutters mainBox">
+<div class="row col-12 no-gutters text-center">
 
-  <div class="col-12 row tile">
-      <!--desktop-->
-      <div class="col-4 d-lg-block d-none">
-      <div class="font text-center">Erik Orndahl</div>
-      <div class="font text-center">Developer, Technologist</div>
-        <br>
-        <img class="headshot centered" src="me.jpg"/>
-        <br>
-        <div class="font text-center">Atlanta, GA</div>
-      </div>
-    <div class="col-8 d-lg-block d-none">
-      <p>
-      Erik is a full stack developer with experience developing and maintaining Spring Boot APIs hosted on AWS, Angular web apps, Python applications,
-      large-scale scripting efforts, and database administration and maintenance across various data stores. He is passionate and focused towards finding effective,
-        efficient, and novel solutions to problems at hand.
-      </p>
-    </div>
-  </div>
+<!--<div class="col-12 row tile">-->
+      <!--&lt;!&ndash;desktop&ndash;&gt;-->
+      <!--<div class="col-4 d-lg-block d-none">-->
+      <!--<div class="font text-center">Erik Orndahl</div>-->
+      <!--<div class="font text-center">Developer, Technologist</div>-->
+        <!--<br>-->
+        <!--<img class="headshot centered" src="me.jpg"/>-->
+        <!--<br>-->
+        <!--<div class="font text-center">Atlanta, GA</div>-->
+      <!--</div>-->
+    <!--<div class="col-8 d-lg-block d-none">-->
+      <!--<p>-->
+      <!--Erik is a full stack developer with experience developing and maintaining Spring Boot APIs hosted on AWS, Angular web apps, Python applications,-->
+      <!--large-scale scripting efforts, and database administration and maintenance across various data stores. He is passionate and focused towards finding effective,-->
+        <!--efficient, and novel solutions to problems at hand.-->
+      <!--</p>-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <div class="col-12 d-lg-none row tile intro-div">
-    <!--mobile-->
+  <div class="col-12 tile" [ngStyle]="getPadding()">
     <div class="col-12">
       <div class="font text-center">Erik Orndahl</div>
       <div class="font text-center">Developer, Technologist</div>
       <br>
-      <img class="mobile headshot centered" src="me.jpg"/>
+      <img class="headshot centered" src="me.jpg"/>
       <br>
       <div class="font text-center">Atlanta, GA</div>
     </div>
-    <div class="col-12 d-lg-none">
-      <p>
-        <span class="mobile-text">
+    <br><br><br>
+    <div class="col-12">
+      <p class="intro">
         Erik is a full stack developer with experience developing and maintaining Spring Boot APIs hosted on AWS, Angular web apps, Python applications,
         large-scale scripting efforts, and database administration and maintenance across various data stores. He is passionate and focused towards finding effective,
         efficient, and novel solutions to problems at hand.
-        </span>
       </p>
     </div>
-
   </div>
 
-  <div class="col-12 row">
-    <div class="col-1 d-none d-lg-block">
-      <button class="button" (click)="showAll()">All&nbsp;Skills</button>
-      <button class="button" (click)="showWeb()">Web</button>
-      <button class="button" (click)="showBackend()">Backend</button>
-      <button class="button" (click)="showIoT()">IoT</button>
-    </div>
-
-      <div class="skillBox col-10 d-none d-lg-block">
-        <!--<div class="col-8 offset-2">-->
-          <table class="skillTable col-8 offset-2">
-            <tr class = "row" *ngFor="let skillRow of skillBox">
-
-              <td class = "row" *ngFor="let skill of skillRow" [ngStyle]="isInvisible(skill)">
-                <div [innerHTML]=skill></div>
-              </td>
-            </tr>
-          </table>
-        </div>
+  <div class="col-12">
+    <!--<div class="col-1 d-none d-lg-block">-->
+      <!--<button class="button" (click)="showAll()">All&nbsp;Skills</button>-->
+      <!--<button class="button" (click)="showWeb()">Web</button>-->
+      <!--<button class="button" (click)="showBackend()">Backend</button>-->
+      <!--<button class="button" (click)="showIoT()">IoT</button>-->
     <!--</div>-->
-      <div class="col-1 d-none d-lg-block">
-    </div>
 
-    <div class="row d-lg-none">
-      <div class="mobile-buttons col-12">
+      <!--<div class="skillBox col-10 d-none d-lg-block">-->
+        <!--&lt;!&ndash;<div class="col-8 offset-2">&ndash;&gt;-->
+          <!--<table class="skillTable col-8 offset-2">-->
+            <!--<tr class = "row" *ngFor="let skillRow of skillBox">-->
+
+              <!--<td class = "row" *ngFor="let skill of skillRow" [ngStyle]="isInvisible(skill)">-->
+                <!--<div [innerHTML]=skill></div>-->
+              <!--</td>-->
+            <!--</tr>-->
+          <!--</table>-->
+        <!--</div>-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+      <!--<div class="col-1 d-none d-lg-block">-->
+    <!--</div>-->
+
+    <div class="col-12">
+      <div class="mobile-buttons col-lg-6 offset-lg-3 col-12">
         <button class="button mobile" (click)="showAll()">All&nbsp;Skills</button>
         <button class="button mobile" (click)="showWeb()">Web</button>
         <button class="button mobile" (click)="showBackend()">Backend</button>
@@ -75,28 +72,25 @@
       <div class="skillBox col-12">
         <table class="skillTable">
           <tr class = "row" *ngFor="let skillRow of skillBox">
-
             <td class = "row" *ngFor="let skill of skillRow" [ngStyle]="isInvisible(skill)">
               <div [innerHTML]=skill></div>
             </td>
-
           </tr>
         </table>
       </div>
     </div>
   </div>
 
-  <div class="row col-12 tile bottom">
+  <div class="col-12 tile bottom">
   <!--<div class="full-screen row col-12 tile bottom d-lg-none">-->
-
-    <div class="col-6 offset-3 d-none d-lg-block">
-      <button class="button col-4 offset-4 text-center"(click)="showResume()">Click for Resume</button>
-    </div>
+    <!--<div class="col-6 offset-3 d-none d-lg-block">-->
+      <!--<button class="button col-4 offset-4 text-center"(click)="showResume()">Click for Resume</button>-->
+    <!--</div>-->
     <!--<div class="col-12 d-lg-none">-->
       <!--<button class="button col-4 offset-4 text-center"(click)="showResume()">Click for Resume</button>-->
     <!--</div>-->
 
-        <div class="resume col-12" *ngIf="showIt">
+        <div class="resume col-12">
           <div class="col-12 col-lg-8 offset-lg-2" [ngStyle] = "getResumeScreenStyle()">
             <br><br>
             <div class="text-center"><b>Software Development – Chick-fil-A, Inc.</b></div>
@@ -168,5 +162,5 @@
   <!--<div class="col-12"><br>-->
     <!--<div class="col-6 offset-3 text-center"><a href="resume.pdf" download><i class="far fa-file"></i> Download.</a></div>-->
   <!--</div>-->
-</div>
+  </div>
 </div>
