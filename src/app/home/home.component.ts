@@ -134,16 +134,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
         return style;
     }
 
-    getPadding() {
-        this.innerWidth = window.innerWidth;
-        let style: Object = null;
-        if (this.innerWidth < 1000) {
-            style = {'padding-bottom' : '14rem'};
-        } else {
-            style = {'padding-bottom' : '6rem'};
-        }
-        return style;
-    }
+    // getPadding() {
+    //     this.innerWidth = window.innerWidth;
+    //     let style: Object = null;
+    //     if (this.innerWidth < 1000) {
+    //         style = {'padding-bottom' : '14rem'};
+    //     } else {
+    //         style = {'padding-bottom' : '3rem'};
+    //     }
+    //     return style;
+    // }
 
     ngAfterViewInit() {
          // new test();

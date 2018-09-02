@@ -17,21 +17,22 @@
   }
 }
 
+.float-img {
+  float:left;
+  margin-right: 5px;
+}
+
 .double-img {
-  width: 25%;
-  display:block;
-  float: left;
-  &.mobile {
-    width: 50%;
+  width: 200px;
+  height: 200px;
+  &.mobile{
+    width: 400px;
+    height: 400px;
   }
 }
 
-.clear {
-  clear: both;
-  height: 0;
-  width: 0;
-  font-size: 1px;
-  line-height: 0;
+.image-box{
+  margin: 0 auto;
 }
 
 .loop {
