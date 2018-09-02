@@ -12,12 +12,26 @@
   width: 50%;
   display:block;
   margin:auto;
-
   &.mobile {
     width: 100%;
-    display: block;
-    margin: auto;
   }
+}
+
+.double-img {
+  width: 25%;
+  display:block;
+  float: left;
+  &.mobile {
+    width: 50%;
+  }
+}
+
+.clear {
+  clear: both;
+  height: 0;
+  width: 0;
+  font-size: 1px;
+  line-height: 0;
 }
 
 .loop {
@@ -27,20 +41,16 @@
 
   &.mobile {
     width: 100%;
-    display: block;
-    margin: auto;
   }
 }
 
 .wizards {
-  width: 20%;
   display:block;
   margin:auto;
+  width: 20%;
 
   &.mobile {
     width: 50%;
-    display: block;
-    margin: auto;
   }
 }
 
@@ -61,7 +71,7 @@
   font-size: 18px;
 }
 
-/* Youtube Reflexive */
+/* Youtube Reactive */
 .vid-container {
     position: relative;
  	padding-bottom: 56.25%; /* 16:9 */
@@ -96,4 +106,24 @@
 
 p {
   text-indent: 2em;
+  font-size: 20px;
+  font-family: "Avenir Next";
+}
+
+@media only screen and (max-width: 1000px) {
+  p {
+    font-size: 36px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .title {
+    font-size: 36px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .date {
+    font-size: 30px;
+  }
 }

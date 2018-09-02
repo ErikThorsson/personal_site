@@ -1,9 +1,12 @@
 .tile {
   padding: 1rem 1rem 1rem 1rem;
   background-color: #e9ecef;
-
   &.bottom {
     margin-bottom: 0%;
+  }
+
+  &.intro-div {
+    padding-bottom: 14rem;
   }
 }
 
@@ -14,37 +17,54 @@
   border-radius: 50%;
 
   &.mobile {
-    width: 100%;
-    display:block;
-    margin:auto;
+    width: 75%;
   }
 }
 
-.intro {
-  margin-left: -4%;
+.double-font-size {
+  font-size: 200%;
+}
+
+.mobile-text {
+  margin-top: -200px;
 }
 
 .icon {
   width: 50px;
-
   display:inline-block;
   vertical-align: 0px;
 
   &.bootstrap {
     width: 80px;
     vertical-align: -15px;
+    &.mobile {
+      width: 200px;
+    }
   }
 
   &.mqtt {
     width: 55px;
     vertical-align: -10px;
+    &.mobile {
+      width: 200px;
+    }
   }
 
   &.linked {
     width: 25px;
     vertical-align: -5px;
   }
+
+  &.mobile {
+    width: 200px;
+  }
 }
+
+.skillBox{
+  display: flex;
+  justify-content: center;
+}
+
 
 .experience-title {
   font-weight: bold;
@@ -60,30 +80,6 @@
   }
 }
 
-p {
-  text-align: center;
-  position: relative;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-li {
-  display: flex;
-}
-
-td {
-  border: none;
-  text-align:center;
-  margin: 1rem 1rem 1rem 1rem;
-}
-
-.skillBox{
-  display: flex;
-  justify-content: center;
-}
-
 .button {
   border: 0;
   line-height: 2.5;
@@ -94,6 +90,10 @@ td {
   text-shadow: 1px 1px 1px #000;
   border-radius: 10px;
   background-color: black;
+
+  &.mobile {
+    width: 25%;
+  }
 }
 
 // only animate on screens that are ~tablet and above. not mobile
@@ -111,3 +111,59 @@ td {
   }
 }
 
+.mobile-buttons {
+  display: flex;
+  justify-content: center;
+  height: 10%;
+}
+
+
+p {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.font {
+  font-size: 20px;
+  font-family: "Avenir Next";
+}
+
+@media only screen and (max-width: 1000px) {
+  .font  {
+    font-size: 36px;
+  }
+}
+
+li {
+  display: flex;
+  font-size: 20px;
+  font-family: "Avenir Next";
+}
+
+@media only screen and (max-width: 1000px) {
+  li  {
+    font-size: 36px;
+  }
+}
+
+td {
+  border: none;
+  text-align:center;
+  margin: 1rem 1rem 1rem 1rem;
+}
+
+p {
+  text-indent: 2em;
+  font-size: 20px;
+  font-family: "Avenir Next";
+}
+
+@media only screen and (max-width: 1000px) {
+  p  {
+    font-size: 36px;
+  }
+}
