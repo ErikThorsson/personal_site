@@ -14,13 +14,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
     constructor() { }
 
   ngOnInit() {
-      this.serverTime = new Date().getTime();
-      const source = timer(1000, 1000);
-      const subscribe = source.subscribe(val => {
-          console.log('hello!')
-          console.log(val)
-          this.serverTime = new Date().getTime();
-      });
+      // this.serverTime = new Date().getTime();
+      // const source = timer(1000, 1000);
+      // const subscribe = source.subscribe(val => {
+      //     console.log('hello!')
+      //     console.log(val)
+      //     this.serverTime = new Date().getTime();
+      // });
   }
 
     ngOnDestroy() {
