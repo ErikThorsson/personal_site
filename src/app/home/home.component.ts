@@ -12,15 +12,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     skillBox = new Array();
     showIt = false;
     invis: string[] = [];
-    RealSense = ''
-    MQTT = ''
-    Java = ''
-    Spring = ''
-    Angular = ''
-    AWS = ''
-    Python = ''
-    HTML5 = ''
-    CSS3 = ''
     mobile = false;
 
     constructor() {}
@@ -31,8 +22,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     ngOnInit() {
         this.innerWidth = window.innerWidth;
         this.reactiveDesign();
-        // this.skillBoxMobile();
-        // console.log(this.elementState);
     }
 
     @HostListener('window:resize', ['$event'])
@@ -52,19 +41,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
 
     skillBoxDesktop() {
-        this.RealSense = 'RealSense <img class="icon mqtt" src="assets/realsense.jpg" width="50">'
-        this.MQTT = 'MQTT <img class="icon mqtt" src="assets/mqtt.png" width="60">'
-        this.Java = 'Java <i class="fab fa-java fa-3x"></i>'
-        this.Spring = 'Spring Boot <img class="icon" src="assets/spring.svg" width="50">'
-        this.Angular = 'Angular 6 <i class="fab fa-angular fa-3x"</i>'
-        this.AWS = 'AWS <i class="fab fa-aws fa-3x"></i>'
-        this.Python = 'Python <i class="fab fa-python fa-3x"></i>'
-        this.HTML5 = 'HTML5 <i class="fab fa-html5 fa-3x"></i>'
-        this.CSS3 = 'CSS3 <i class="fab fa-css3 fa-3x"></i>'
-
-        const realsense = new SkillBox(-200, 0, true, 'Realsense', 'assets/realsense.jpg', 'icon', false, 0)
+        const realsense = new SkillBox(-200, 0, true, 'Realsense', 'realsense.jpg', 'icon', false, 0)
         const java = new SkillBox(0, 0, true, 'Java', '', 'fab fa-java fa-3x', true, 1)
-        const spring = new SkillBox(200, 0, true, 'Spring', 'assets/spring.svg', 'icon', false, 2)
+        const spring = new SkillBox(200, 0, true, 'Spring', 'spring.svg', 'icon', false, 2)
         this.skillBox[0] = new Array(realsense, java, spring);
 
         const aws = new SkillBox(-200, 100, true, 'AWS', '', 'fab fa-aws fa-3x', true, 3)
@@ -72,14 +51,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
         const python = new SkillBox(200, 100, true, 'Python', '', 'fab fa-python fa-3x', true, 5)
         this.skillBox[1] = new Array(aws, angular, python);
 
-        const mqtt = new SkillBox(-200, 200, true, 'MQTT', 'assets/mqtt.png', 'icon', false, 6)
+        const mqtt = new SkillBox(-200, 200, true, 'MQTT', 'mqtt.png', 'icon', false, 6)
         const html = new SkillBox(0, 200, true, 'HTML5', '', 'fab fa-html5 fa-3x', true, 7)
         const css = new SkillBox(200, 200, true, 'CSS3', '', 'fab fa-css3 fa-3x', true, 8)
         this.skillBox[2] = new Array(mqtt, html, css);
     }
 
     move(skillBox: SkillBox, x_move: number, y_move: number) {
-        if (!this.mobile) {
+        // if (!this.mobile) {
 
             const elem = document.getElementById(skillBox.name);
             let x = skillBox.x;
@@ -131,7 +110,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
                 elem.style.left = x + 'px';
                 elem.style.top = y + 'px';
             }, 10);
-        }
+        // }
     }
 
     getMoveCoords(box: SkillBox) {
@@ -150,24 +129,45 @@ export class HomeComponent implements OnInit, AfterViewInit {
         }
         // shift the x and y coords of the inactive tile (sometimes doesn't change fast enough if currently animated)
         // used for active move calculations
-        if (inactive.index % 3 === 0) {
-            inactive.x = -200;
-        } else if (inactive.index % 3 === 1) {
-            inactive.x = 0;
-        } else if (inactive.index % 3 === 2) {
-            inactive.x = 200;
-        }
-        if (inactive.index < 3) {
-            inactive.y = 0;
-        } else if (inactive.index < 6 && inactive.index > 2) {
-            inactive.y = 100;
-        } else if (inactive.index < 9 && inactive.index > 5) {
-            inactive.y = 200;
+        if ( this.mobile ) {
+            if (inactive.index % 3 === 0) {
+                inactive.x = -350;
+            } else if (inactive.index % 3 === 1) {
+                inactive.x = -50;
+            } else if (inactive.index % 3 === 2) {
+                inactive.x = 250;
+            }
+            if (inactive.index < 3) {
+                inactive.y = 0;
+            } else if (inactive.index < 6 && inactive.index > 2) {
+                inactive.y = 200;
+            } else if (inactive.index < 9 && inactive.index > 5) {
+                inactive.y = 400;
+            }
+        } else {
+            if (inactive.index % 3 === 0) {
+                inactive.x = -200;
+            } else if (inactive.index % 3 === 1) {
+                inactive.x = 0;
+            } else if (inactive.index % 3 === 2) {
+                inactive.x = 200;
+            }
+            if (inactive.index < 3) {
+                inactive.y = 0;
+            } else if (inactive.index < 6 && inactive.index > 2) {
+                inactive.y = 100;
+            } else if (inactive.index < 9 && inactive.index > 5) {
+                inactive.y = 200;
+            }
         }
 
         console.log("FILTERED active: " + box.name + ' ' + box.x + ' ' + box.y + " inactive: " + inactive.name + ' ' + inactive.x + ' ' + inactive.y + ' index ' + inactive.index)
-
-        let x = Math.abs(inactive.x) - Math.abs(box.x);
+        let x = 0;
+        if ( this.mobile ) {
+            x = Math.abs(inactive.x - box.x);
+        } else {
+            x = Math.abs(inactive.x) - Math.abs(box.x);
+        }
         // active moving right
         if (activeMovingRight) {
             x = Math.abs(x);
@@ -226,18 +226,20 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
 
     skillBoxMobile() {
-        this.RealSense = 'RealSense <img class="icon mqtt" src="assets/realsense.jpg">'
-        this.MQTT = 'MQTT <img class="icon mqtt" src="assets/mqtt.png">'
-        this.Spring = 'Spring Boot <img class="icon" src="assets/spring.svg">'
-        this.Java = 'Java <i class="fab fa-java fa-10x"></i>'
-        this.Angular = 'Angular 6 <i class="fab fa-angular fa-10x"></i>'
-        this.AWS = 'AWS <i class="fab fa-aws fa-10x"></i>'
-        this.Python = 'Python <i class="fab fa-python fa-10x"></i>'
-        this.HTML5 = 'HTML5 <i class="fab fa-html5 fa-10x"></i>'
-        this.CSS3 = 'CSS3 <i class="fab fa-css3 fa-10x"></i>'
-        this.skillBox[0] = new Array(this.Java, this.Python, this.Spring);
-        this.skillBox[1] = new Array(this.AWS, this.RealSense, this.Angular);
-        this.skillBox[2] = new Array(this.MQTT, this.HTML5, this.CSS3);
+        const realsense = new SkillBox(-350, 0, true, 'Realsense', 'realsense.jpg', 'icon mobile', false, 0)
+        const java = new SkillBox(-50, 0, true, 'Java', '', 'fab fa-java fa-7x', true, 1)
+        const spring = new SkillBox(250, 0, true, 'Spring', 'spring.svg', 'icon mobile', false, 2)
+        this.skillBox[0] = new Array(realsense, java, spring);
+
+        const aws = new SkillBox(-350, 200, true, 'AWS', '', 'fab fa-aws fa-7x', true, 3)
+        const angular = new SkillBox(-50, 200, true, 'Angular', '', 'fab fa-angular fa-7x', true, 4)
+        const python = new SkillBox(250, 200, true, 'Python', '', 'fab fa-python fa-7x', true, 5)
+        this.skillBox[1] = new Array(aws, angular, python);
+
+        const mqtt = new SkillBox(-350, 400, true, 'MQTT', 'mqtt.png', 'icon mobile', false, 6)
+        const html = new SkillBox(-50, 400, true, 'HTML5', '', 'fab fa-html5 fa-7x', true, 7)
+        const css = new SkillBox(250, 400, true, 'CSS3', '', 'fab fa-css3 fa-7x', true, 8)
+        this.skillBox[2] = new Array(mqtt, html, css);
     }
 
     showWeb() {
@@ -289,6 +291,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
         skill = this.getSkillBox('Python');
         arr = this.getMoveCoords(skill);
+        console.log('moving pythong ' + Number(arr[0]) + ' ' +  Number(arr[1]));
         this.move(skill, Number(arr[0]), Number(arr[1]));
 
         skill = this.getSkillBox('Spring');
@@ -363,6 +366,18 @@ export class HomeComponent implements OnInit, AfterViewInit {
         let style: Object = null;
         if (this.innerWidth < 1000) {
             style = {'font-size': '200%'};
+        }
+        return style;
+    }
+
+    getSkillboxStyle() {
+        this.innerWidth = window.innerWidth;
+        // console.log(this.innerWidth);
+        let style: Object = null;
+        if (this.innerWidth < 1000) {
+            style = {'padding-bottom': '40rem'};
+        } else {
+            style = {'padding-bottom': '18rem'};
         }
         return style;
     }

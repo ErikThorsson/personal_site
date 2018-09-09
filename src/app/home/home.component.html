@@ -79,13 +79,13 @@
       <!--</div>-->
 
       <br>
-      <div class="skillBox col-12">
+      <div class="skillBox col-12" [ngStyle] = "getSkillboxStyle()">
           <div *ngFor="let skillRow of skillBox">
             <div *ngFor="let skill of skillRow" [ngStyle]="isInvisible(skill.name)">
               <div *ngIf="skill.fa == false">
                 <div class="skillIcon">
                   <div id={{skill.name}} [ngStyle]="getStyle(skill.name)">
-                    <img src={{skill.img}} class={{skill.imgClass}} width="50">
+                    <img src={{skill.img}} class={{skill.imgClass}}>
                     <br>
                     {{skill.name}}
                   </div>
