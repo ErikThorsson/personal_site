@@ -1,85 +1,11 @@
 import {Component, OnInit, AfterViewInit, HostListener, Input} from '@angular/core';
-import {trigger, state, style, animate, transition, group} from '@angular/animations';
-import {timer} from 'rxjs';
-import {T} from '@angular/core/src/render3';
 
 declare var test: any;
 
 @Component({
   selector: 'app-root',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
-    animations: [
-    trigger('enterLeave', [
-        transition('void => *', [
-            // 'From' Style
-            style({ opacity: 0.2, transform: 'translateX(-100%)' }),
-            animate('1500ms ease-in')
-        ]),
-        transition('* => void', [
-            animate('1500ms ease-in',
-                // 'To' Style
-                style({ opacity: 1, transform: 'translateX(100%)' }),
-            )
-        ])
-        ]),
-        trigger('selected', [
-            // Custom selected
-            state('selected',
-                style({
-                    // backgroundColor: 'whitesmoke',
-                    // transform: 'scale(1.2)',
-                }),
-            ),
-            transition('selected => *', [
-                group([
-                    // style({height: '*'}),
-                    // animate('1s ease-in', style({ opacity: 1, transform: 'translateX(100%)' }))
-                    // Apply pink color to the item and
-                    // animate('1s ease',
-                    //     style({
-                    //         backgroundColor: '#ffc107'
-                    //     })
-                    // ),
-                    // // after a second, fade it to the background
-                    // animate('2s 1.5s ease',
-                    //     style({
-                    //         opacity: 0.2,
-                    //         transform: 'scale(0.5)'
-                    //     })
-                    // )
-                ])
-            ]),
-            transition('* => selected', [
-                // animate('1500ms ease-in',
-                //     // 'To' Style
-                //     style({ opacity: 1, transform: 'translateY(50%)', transform: 'translateX(50%)' }),
-                // )
-                group([
-                    // animate('1500ms ease-in',
-                    //     // 'To' Style
-                    //     style({ opacity: 1, transform: 'translateX(50%)' })),
-                    // after a second, fade it to the background
-                    // animate('1500ms ease-in',
-                    //     // 'To' Style
-                    //     style({ opacity: 1, transform: 'translateY(50%)' }))
-                    animate('1s ease',
-                        style({
-                            transform: 'translateX(300%)',
-                            width: 200,
-                            // opacity: 1, transform: 'translateX(-500%)'
-                        })
-                    ),
-                    // after a second, fade it to the background
-                    animate('2s ease',
-                        style({
-                            transform: 'translateY(-200%)'
-                        })
-                    )
-                ])
-            ])
-        ])
-    ]
+  styleUrls: ['./home.component.scss']
 })
 
 export class HomeComponent implements OnInit, AfterViewInit {
@@ -95,9 +21,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     Python = ''
     HTML5 = ''
     CSS3 = ''
-    selected = true;
-    // elementState = 'selected'
-    elementState = ''
+    mobile = false;
 
     constructor() {}
 
@@ -108,7 +32,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.innerWidth = window.innerWidth;
         this.reactiveDesign();
         // this.skillBoxMobile();
-        console.log(this.elementState);
+        // console.log(this.elementState);
     }
 
     @HostListener('window:resize', ['$event'])
@@ -119,17 +43,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     reactiveDesign() {
         this.skillBoxMobile();
-        // this.skillBox = new Array();
         if (this.innerWidth > 1000) {
             this.skillBoxDesktop();
         } else {
             this.skillBoxMobile();
-        //     this.showIt = true;
+            this.mobile = true;
         }
     }
 
     skillBoxDesktop() {
-        this.RealSense = 'RealSense <img class="icon mqtt object practice move-right" src="assets/realsense.jpg" width="50">'
+        this.RealSense = 'RealSense <img class="icon mqtt" src="assets/realsense.jpg" width="50">'
         this.MQTT = 'MQTT <img class="icon mqtt" src="assets/mqtt.png" width="60">'
         this.Java = 'Java <i class="fab fa-java fa-3x"></i>'
         this.Spring = 'Spring Boot <img class="icon" src="assets/spring.svg" width="50">'
@@ -138,56 +61,174 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.Python = 'Python <i class="fab fa-python fa-3x"></i>'
         this.HTML5 = 'HTML5 <i class="fab fa-html5 fa-3x"></i>'
         this.CSS3 = 'CSS3 <i class="fab fa-css3 fa-3x"></i>'
-        // this.skillBox[0] = new Array(this.Java, this.Python, this.Spring, this.AWS, this.RealSense);
-        // this.skillBox[1] = new Array(this.Angular, this.MQTT, this.HTML5, this.CSS3);
 
-        const realSenseBox = new SkillBox(0, 0, true, 'realsense', 'assets/realsense.jpg', 'icon', false)
-        const javaBox = new SkillBox(200, 0, true, 'java', '', 'fab fa-java fa-3x', true)
-        const springBox = new SkillBox(400, 0, true, 'spring', 'assets/spring.svg', 'icon', false)
-        this.skillBox[0] = new Array(realSenseBox, javaBox, springBox);
+        const realsense = new SkillBox(-200, 0, true, 'Realsense', 'assets/realsense.jpg', 'icon', false, 0)
+        const java = new SkillBox(0, 0, true, 'Java', '', 'fab fa-java fa-3x', true, 1)
+        const spring = new SkillBox(200, 0, true, 'Spring', 'assets/spring.svg', 'icon', false, 2)
+        this.skillBox[0] = new Array(realsense, java, spring);
 
-        // const aws = new SkillBox(0, -100, true, 'AWS', '', 'fab fa-aws fa-3x', true)
-        // this.skillBox[1] = new Array(aws);
-        // this.skillBox[2] = new Array(this.MQTT, this.HTML5, this.CSS3);
+        const aws = new SkillBox(-200, 100, true, 'AWS', '', 'fab fa-aws fa-3x', true, 3)
+        const angular = new SkillBox(0, 100, true, 'Angular', '', 'fab fa-angular fa-3x', true, 4)
+        const python = new SkillBox(200, 100, true, 'Python', '', 'fab fa-python fa-3x', true, 5)
+        this.skillBox[1] = new Array(aws, angular, python);
+
+        const mqtt = new SkillBox(-200, 200, true, 'MQTT', 'assets/mqtt.png', 'icon', false, 6)
+        const html = new SkillBox(0, 200, true, 'HTML5', '', 'fab fa-html5 fa-3x', true, 7)
+        const css = new SkillBox(200, 200, true, 'CSS3', '', 'fab fa-css3 fa-3x', true, 8)
+        this.skillBox[2] = new Array(mqtt, html, css);
     }
 
     move(skillBox: SkillBox, x_move: number, y_move: number) {
-        const elem = document.getElementById(skillBox.name);
-        console.log('moving ' + skillBox.name) + '...';
-        let x = skillBox.x;
-        let y = skillBox.y;
-        const xStart = skillBox.x;
-        const yStart = skillBox.y;
-        const timer = setInterval(frame, 2);
-        function frame() {
-            if (x === x_move + xStart && y === y_move + yStart) {
-                clearInterval(timer);
+        if (!this.mobile) {
+
+            const elem = document.getElementById(skillBox.name);
+            let x = skillBox.x;
+            let y = skillBox.y;
+            let xInterval = 0;
+            let yInterval = 0;
+            let xSign = 1;
+            if (x_move < 0) {
+                xSign = -1;
+            }
+            let ySign = 1;
+            if (y_move < 0) {
+                ySign = -1;
+            }
+            if (x_move !== 0 && y_move !== 0) {
+                if (Math.abs(x_move) > Math.abs(y_move)) {
+                    xInterval = Math.abs(x_move / y_move) * ySign * 5
+                    yInterval = 5 * ySign;
+                } else {
+                    xInterval = 5 * xSign;
+                    yInterval = Math.abs(y_move / x_move) * ySign * 5;
+                }
             } else {
-                if (x !== x_move + xStart) {
-                    if (x_move > 0) {
-                        x++;
-                    } else {
-                        x--;
+                if ( x_move === 0) {
+                    if (y_move === 0) {
+                        return;
                     }
                 }
-                if (y !== y_move + yStart) {
-                    if (y_move > 0) {
-                        y++;
-                    } else {
-                        y--;
-                    }
+                if (x_move !== 0) {
+                    xInterval = 5 * xSign;
+                }
+                if (y_move !== 0) {
+                    yInterval = 5 * ySign;
+                }
+            }
+
+            let xTraveled = 0;
+            let yTraveled = 0;
+
+            const interval = setInterval(() => {
+                if (xTraveled >= Math.abs(x_move) && yTraveled >= Math.abs(y_move)) {
+                    clearInterval(interval);
+                } else {
+                    x += xInterval;
+                    xTraveled += Math.abs(xInterval);
+                    y += yInterval;
+                    yTraveled += Math.abs(yInterval);
                 }
                 elem.style.left = x + 'px';
                 elem.style.top = y + 'px';
-                console.log(elem.style.left);
-            }
+            }, 10);
         }
     }
 
+    getMoveCoords(box: SkillBox) {
+        const inactive: SkillBox = this.getFirstInactivePosition();
+
+        // if next inactive is past current index, return no move
+        if (inactive.index > box.index) {
+            return new Array(String(0), String(0), box.name);
+        }
+        const activeXStart = box.x;
+        const activeYStart = box.y;
+        let activeMovingRight = false;
+
+        if (inactive.x > box.x) {
+            activeMovingRight = true;
+        }
+        // shift the x and y coords of the inactive tile (sometimes doesn't change fast enough if currently animated)
+        // used for active move calculations
+        if (inactive.index % 3 === 0) {
+            inactive.x = -200;
+        } else if (inactive.index % 3 === 1) {
+            inactive.x = 0;
+        } else if (inactive.index % 3 === 2) {
+            inactive.x = 200;
+        }
+        if (inactive.index < 3) {
+            inactive.y = 0;
+        } else if (inactive.index < 6 && inactive.index > 2) {
+            inactive.y = 100;
+        } else if (inactive.index < 9 && inactive.index > 5) {
+            inactive.y = 200;
+        }
+
+        console.log("FILTERED active: " + box.name + ' ' + box.x + ' ' + box.y + " inactive: " + inactive.name + ' ' + inactive.x + ' ' + inactive.y + ' index ' + inactive.index)
+
+        let x = Math.abs(inactive.x) - Math.abs(box.x);
+        // active moving right
+        if (activeMovingRight) {
+            x = Math.abs(x);
+        } else if (x !== 0) {
+            // left
+            x = Math.abs(x) * -1;
+        }
+        if (x === 0) {
+            x = inactive.x - box.x;
+        }
+
+        let y = Math.abs(inactive.y) - Math.abs(box.y);
+        // y moving down
+        if (inactive.y > box.y) {
+            y = Math.abs(y);
+        } else {
+            // down up
+            y = Math.abs(y) * -1;
+        }
+
+        const inactive_index = inactive.index;
+        inactive.index = box.index;
+        box.index = inactive_index;
+
+        // now set the new inactive coords
+        inactive.x = activeXStart;
+        inactive.y = activeYStart;
+
+        console.log("FINAL active: " + box.name + ' ' + box.x + ' ' + box.y +  ' index ' + box.index + " inactive: " + inactive.name + ' ' + inactive.x + ' ' + inactive.y + ' index ' + inactive.index)
+        // shift inactive
+        const inactiveElem = document.getElementById(inactive.name);
+        inactiveElem.style.left = inactive.x + 'px';
+        inactiveElem.style.top = inactive.y + 'px';
+
+        return new Array(String(x), String(y), inactive.name);
+    }
+
+    // returns first inactive box
+    getFirstInactivePosition(): SkillBox {
+        let box: SkillBox = null;
+        let inactiveIndex = 0;
+        // find first inactive spot
+        this.skillBox.forEach(skillArray => {
+            skillArray.forEach((skill: SkillBox) => {
+                // console.log(skill.name + ' ' + skill.active);
+                if ((skill.active === false && box == null)
+                    || (skill.active === false && skill.index < inactiveIndex)) {
+                    box = skill;
+                    // since this inactive position is being filled mark as active
+                    inactiveIndex = skill.index;
+                    // console.log('inactive is ' + skill.name + ' index ' + skill.index);
+                }
+            });
+        });
+        return box;
+    }
+
     skillBoxMobile() {
-        this.RealSense = 'RealSense <img class="icon mqtt" src="assets/realsense.jpg" width="180px">'
-        this.MQTT = 'MQTT <img class="icon mqtt" src="assets/mqtt.png" width="200px">'
-        this.Spring = 'Spring Boot <img class="icon" src="assets/spring.svg" width="180px">'
+        this.RealSense = 'RealSense <img class="icon mqtt" src="assets/realsense.jpg">'
+        this.MQTT = 'MQTT <img class="icon mqtt" src="assets/mqtt.png">'
+        this.Spring = 'Spring Boot <img class="icon" src="assets/spring.svg">'
         this.Java = 'Java <i class="fab fa-java fa-10x"></i>'
         this.Angular = 'Angular 6 <i class="fab fa-angular fa-10x"></i>'
         this.AWS = 'AWS <i class="fab fa-aws fa-10x"></i>'
@@ -200,44 +241,110 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
 
     showWeb() {
-        // this.toggleState();
         this.invis = [];
-        // this.invis.push('Java')
-        // this.invis.push('Python')
-        // this.invis.push('AWS')
-        // this.invis.push('Spring')
-        // this.invis.push('MQTT')
-        this.invis.push('realsense')
-        this.move(this.getSkillBox('java'), -200, 0);
-        // this.skillBox = new Array();
-        // this.skillBox[0] = new Array(this.Angular, this.HTML5, this.CSS3);
-        // this.skillBox[1] = new Array(this.AWS, this.RealSense, this.MQTT);
-        // this.skillBox[2] = new Array(this.Java, this.Python, this.Spring);
+        this.setInactive('Java')
+        this.setInactive('Python')
+        this.setInactive('AWS')
+        this.setInactive('Spring')
+        this.setInactive('MQTT')
+        this.setInactive('Realsense')
+        this.setActive('Angular');
+        this.setActive('HTML5');
+        this.setActive('CSS3');
+
+        console.log('SHOW WEB');
+        let name = 'Angular';
+        const angular: SkillBox = this.getSkillBox(name);
+        let arr = this.getMoveCoords(angular);
+        this.move(angular, Number(arr[0]), Number(arr[1]));
+
+        name = 'HTML5';
+        const html: SkillBox = this.getSkillBox(name);
+        arr = this.getMoveCoords(html);
+        this.move(html, Number(arr[0]), Number(arr[1]));
+
+        name = 'CSS3';
+        const css: SkillBox = this.getSkillBox(name);
+        arr = this.getMoveCoords(css)
+        this.move(css, Number(arr[0]), Number(arr[1]));
     }
 
     showBackend() {
         this.invis = [];
-        this.invis.push('Angular')
-        this.invis.push('HTML5')
-        this.invis.push('CSS3')
-        this.invis.push('MQTT')
-        this.invis.push('RealSense')
+        this.setInactive('Angular')
+        this.setInactive('HTML5')
+        this.setInactive('CSS3')
+        this.setInactive('MQTT')
+        this.setInactive('Realsense')
+        this.setActive('Java');
+        this.setActive('Python');
+        this.setActive('Spring');
+        this.setActive('AWS');
+
+        console.log('SHOW BACK');
+
+        let skill: SkillBox = this.getSkillBox('Java');
+        let arr = this.getMoveCoords(skill);
+        this.move(skill, Number(arr[0]), Number(arr[1]));
+
+        skill = this.getSkillBox('Python');
+        arr = this.getMoveCoords(skill);
+        this.move(skill, Number(arr[0]), Number(arr[1]));
+
+        skill = this.getSkillBox('Spring');
+        arr = this.getMoveCoords(skill);
+        this.move(skill, Number(arr[0]), Number(arr[1]));
+
+        skill = this.getSkillBox('AWS');
+        arr = this.getMoveCoords(skill);
+        this.move(skill, Number(arr[0]), Number(arr[1]));
     }
 
     showIoT() {
-        console.log('hello!')
         this.invis = [];
-        this.invis.push('Java')
-        this.invis.push('Python')
-        this.invis.push('AWS')
-        this.invis.push('Spring')
-        this.invis.push('Angular')
-        this.invis.push('HTML5')
-        this.invis.push('CSS3')
+        this.setInactive('Angular')
+        this.setInactive('HTML5')
+        this.setInactive('CSS3')
+        this.setInactive('Python')
+        this.setInactive('Java')
+        this.setInactive('Spring')
+        this.setInactive('AWS')
+        this.setActive('MQTT');
+        this.setActive('Realsense');
+
+        let skill = this.getSkillBox('MQTT');
+        let arr = this.getMoveCoords(skill);
+        this.move(skill, Number(arr[0]), Number(arr[1]));
+
+        skill = this.getSkillBox('Realsense');
+        arr = this.getMoveCoords(skill);
+        this.move(skill, Number(arr[0]), Number(arr[1]));
     }
 
     showAll() {
         this.invis = [];
+    }
+
+
+    setInactive(name: string) {
+        this.skillBox.forEach(skillArray => {
+            skillArray.forEach((skill: SkillBox) => {
+                if (skill.name === name) {
+                    this.invis.push(name);
+                    skill.active = false;
+                }
+            });
+        });
+    }
+
+    setActive(name: string) {
+        this.skillBox.forEach(skillArray => {
+            skillArray.forEach((skill: SkillBox) => {
+                if (skill.name === name) {
+                    skill.active = true;
+                }
+            });
+        });
     }
 
     isInvisible(name: string) {
@@ -247,35 +354,18 @@ export class HomeComponent implements OnInit, AfterViewInit {
                     style = {'visibility': 'hidden'};
                 }
             });
-        // this.skillBox.forEach(skillRow => {
-        //     skillRow.forEach(skill => {
-        //         if (skill.active === false) {
-        //             style = {'visibility': 'hidden'};
-        //         }
-        // });
-        // });
         return style;
     }
 
     getResumeScreenStyle() {
         this.innerWidth = window.innerWidth;
+        // console.log(this.innerWidth);
         let style: Object = null;
         if (this.innerWidth < 1000) {
             style = {'font-size': '200%'};
         }
         return style;
     }
-
-    // getPadding() {
-    //     this.innerWidth = window.innerWidth;
-    //     let style: Object = null;
-    //     if (this.innerWidth < 1000) {
-    //         style = {'padding-bottom' : '14rem'};
-    //     } else {
-    //         style = {'padding-bottom' : '3rem'};
-    //     }
-    //     return style;
-    // }
 
     ngAfterViewInit() {
          // new test();
@@ -289,38 +379,30 @@ export class HomeComponent implements OnInit, AfterViewInit {
         }
     }
 
-    toggleState() {
-        console.log('hello');
-        if (this.elementState !== 'selected') {
-            this.elementState = 'selected';
-        } else {
-            this.elementState = '';
-        }
-    }
-
     getSkillBox(name: string): any {
         let box: SkillBox = null;
-        this.skillBox[0].forEach((skill: SkillBox) => {
-            console.log(skill.name);
-            console.log(skill.name === name)
+        this.skillBox.forEach(skillArray => {
+            skillArray.forEach((skill: SkillBox) => {
+            // console.log('looking for...' + skill.name);
+            // console.log(skill.name === name)
             if (skill.name === name) {
                 box = skill;
             }
+            });
         });
         return box;
     }
 
     getStyle(name: string) {
         let style: Object = null;
-        // this.skillBox.forEach((skillArray: Array[T]) => {
-            this.skillBox[0].forEach((skill: SkillBox) => {
+        this.skillBox.forEach(skillArray => {
+            skillArray.forEach((skill: SkillBox) => {
             if (skill.name.includes(name)) {
+                // console.log(name)
                 style = {'position' : 'absolute', 'left' : skill.x + 'px', 'top' : skill.y + 'px'};
-                    //  'top' : skill.y ,'left' : skill.x + '!important'};
-                // console.log(name + ' ' + skill.x + ' ' + skill.y);
             }
             });
-        // });
+        });
         return style;
     }
 }
@@ -333,7 +415,8 @@ export class SkillBox {
     img: string;
     imgClass: string;
     fa: boolean;
-    constructor(x: number, y: number, active: boolean, name: string, img: string, imgClass: string, fa: boolean) {
+    index: number;
+    constructor(x: number, y: number, active: boolean, name: string, img: string, imgClass: string, fa: boolean, index: number) {
         this.x = x;
         this.y = y;
         this.active = active;
@@ -341,5 +424,6 @@ export class SkillBox {
         this.img = img;
         this.imgClass = imgClass;
         this.fa = fa;
+        this.index = index;
     }
 }

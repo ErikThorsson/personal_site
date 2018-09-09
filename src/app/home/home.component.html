@@ -1,17 +1,3 @@
-<!--<div @enterLeave>-->
-<!--<div id="axis" class="one" (click)="myMove()">-->
-  <!--<img class="object practice move-right" src="assets/realsense.jpg" width="200">-->
-<!--</div>-->
-<!--</div>-->
-
-<!--<div id="axis" class="one">-->
-  <!--<img class="object van move-right" src="images/van-to-right.png"/>-->
-<!--</div>-->
-
-<!--<div [@selected]="elementState" (click)="toggleState()">-->
-  <!--<p>I'm going to be animated guys...</p>-->
-<!--</div>-->
-
 <div class="row col-12 no-gutters text-center">
 
   <!--<div class="col-12 row tile">-->
@@ -92,33 +78,32 @@
         <!--<img id="ani" src="assets/realsense.jpg" width="200">-->
       <!--</div>-->
 
-
+      <br>
       <div class="skillBox col-12">
-        <table class="skillTable">
-          <div class = "row" *ngFor="let skillRow of skillBox">
-            <div class = "row" *ngFor="let skill of skillRow" [ngStyle]="isInvisible(skill.name)">
-              <!--[ngStyle]="isInvisible(skill)-->
+          <div *ngFor="let skillRow of skillBox">
+            <div *ngFor="let skill of skillRow" [ngStyle]="isInvisible(skill.name)">
               <div *ngIf="skill.fa == false">
-                <div class="test">
-                  <img class={{skill.imgClass}} src={{skill.img}} width="50" id={{skill.name}} [ngStyle]="getStyle(skill.name)">
-                  <!--{{skill.name}}-->
-                  <!--[ngStyle]="{'position': 'absolute', 'left': skill.x,'top' : skill.y }-->
+                <div class="skillIcon">
+                  <div id={{skill.name}} [ngStyle]="getStyle(skill.name)">
+                    <img src={{skill.img}} class={{skill.imgClass}} width="50">
+                    <br>
+                    {{skill.name}}
+                  </div>
                 </div>
               </div>
               <div *ngIf="skill.fa == true">
-                <div class="test">
-                  <i class={{skill.imgClass}} id={{skill.name}} [ngStyle]="getStyle(skill.name)"></i>
-                  <!--{{skill.name}}-->
+                <div class="skillIcon">
+                  <div id={{skill.name}} [ngStyle]="getStyle(skill.name)">
+                    <i class={{skill.imgClass}}></i>
+                    <br>
+                    {{skill.name}}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           <td>
-            <!--<div class="test">Spring Boot-->
-              <!--<img class="icon" src="assets/spring.svg" width="50" id="ani">-->
-            <!--</div>-->
           </td>
-        </table>
       </div>
     </div>
   </div>

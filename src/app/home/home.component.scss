@@ -61,7 +61,7 @@
 .skillBox{
   display: flex;
   justify-content: center;
-  padding-bottom: 2rem;
+  padding-bottom: 18rem;
 }
 
 //.mobile-text {
@@ -189,16 +189,10 @@ p {
 //  -o-transition: all 2s ease-in-out; /** Opera **/
 //}
 
-.test {
-  //width: 400px;
-  //height: 400px;
+.skillIcon {
   position: relative;
-  //background: yellow;
 }
 
 #ani {
-  //width: 50px;
-  //height: 50px;
   position: absolute;
-  //background: red;
 }
