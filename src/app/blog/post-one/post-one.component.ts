@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-blog-postOne',
@@ -7,8 +6,6 @@ import { environment } from '../../../environments/environment';
     styleUrls: ['../blog.component.scss']
 })
 export class PostOneComponent implements OnInit {
-
-  version: string = environment.version;
 
   constructor() { }
 

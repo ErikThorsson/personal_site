@@ -1,5 +1,4 @@
 <div class="row col-12 no-gutters text-center mainBox">
-
     <br><br>
     <div class="col-12 text-center">
         <div class="col-12 tile bottom">
@@ -7,19 +6,19 @@
             <header class="title">Explorations with the Intel RealSense D415 Depth Camera.</header>
             <span><br>Unfiltered depth video in the coffee shop.</span>
             <div class="col-6 offset-3">
-                <div class="vid-container d-none d-sm-block">
+                <div class="vid-container d-none d-lg-block">
                     <iframe src="https://www.youtube.com/embed/mXSlDmlVsXc"
                             frameborder="0" allowfullscreen>
                     </iframe>
                 </div>
             </div>
-          <div class="vid-container -lg-">
+          <div class="vid-container d-lg-none">
             <iframe src="https://www.youtube.com/embed/mXSlDmlVsXc"
                     frameborder="0" allowfullscreen>
             </iframe>
           </div>
             <br>
-            <div class="col-12 col-sm-10 offset-sm-1 text-left">
+            <div class="col-12 col-lg-10 offset-lg-1 text-left">
                 <p>
                 Here we have a generic video feed from the camera using the camera's own software. You can see some noise
                 in the first half of the video before I switch to high accuracy mode which creates more black holes with 0 depth
@@ -32,7 +31,7 @@
                 </p>
             </div>
             <br>
-            <div class="col-12 col-sm-6 offset-sm-3 text-left">
+            <div class="col-12 col-lg-6 offset-lg-3 text-left">
                 <blockquote><pre><code class="code">
       import pyrealsense2 as rs
       import cv2 as cv
@@ -69,7 +68,7 @@
               pipeline.stop()
       </code></pre></blockquote></div>
             <br>
-            <div class="col-12 col-sm-10 offset-sm-1 text-left">
+            <div class="col-12 col-lg-10 offset-lg-1 text-left">
                 <p>
                 This next method filters the image using the depth values. The depth image's data is taken from its numpy array and then the
                 pixel depth value is found using a constant from the sdk.
@@ -80,7 +79,7 @@
                 </p>
             </div>
             <br>
-            <div class="col-12 col-sm-6 offset-sm-3 text-left">
+            <div class="col-12 col-lg-6 offset-lg-3 text-left">
                 <blockquote><pre><code class="code">
           def filter_depth(depth_image, color_image):
               DEPTH_SCALE = .0010000000474974513
@@ -105,7 +104,7 @@
               return color_image
       </code></pre></blockquote></div>
             <br>
-            <div class="col-12 col-sm-10 offset-sm-1 text-left">
+            <div class="col-12 col-lg-10 offset-lg-1 text-left">
                 <p>
                 We want to further filter the image now though. so we will be using some opencv. Our filtering into white and black
                 will make it easier to find object outlines, or contours.
@@ -113,7 +112,7 @@
                 Otherwise, it will create a cool neon circle effect around the white pixels.
                 </p>
             </div>
-            <div class="col-12 col-sm-6 offset-sm-3 text-left">
+            <div class="col-12 col-lg-6 offset-lg-3 text-left">
                 <blockquote><pre><code class="code">
             # find all the 'white' shapes in the image
             lower = np.array([255, 255, 255])
@@ -129,27 +128,27 @@
                 cv.drawContours(image, [c], -1, (0, 255, 0), 2)
       </code></pre></blockquote></div>
             <span><br>Looking at the depth of a box through our filter.</span>
-            <div class="col-6 offset-3 d-none d-sm-block">
+            <div class="col-6 offset-3 d-none d-lg-block">
                 <div class="vid-container">
                     <iframe src="https://www.youtube.com/embed/VNaVkOVCamM"
                             frameborder="0" allowfullscreen>
                     </iframe>
                 </div>
             </div>
-          <div class="vid-container -lg-">
+          <div class="vid-container d-lg-none">
             <iframe src="https://www.youtube.com/embed/VNaVkOVCamM"
                     frameborder="0" allowfullscreen>
             </iframe>
           </div>
             <br><br>
-            <div class="col-12 col-sm-10 offset-sm-1 text-left">
+            <div class="col-12 col-lg-10 offset-lg-1 text-left">
                 <p>
                 Next we can add rudimentary object detection and counting using an image recognition library called sci-kit.
                 This library will attempt to find "blobs", and then our next function will try to group them by radius size 25% of
                 each other.
                 </p>
             </div>
-            <div class="col-12 col-sm-6 offset-sm-3 text-left">
+            <div class="col-12 col-lg-6 offset-lg-3 text-left">
                 <blockquote><pre><code class="code">
           from math import sqrt
           from skimage.feature import blob_dog, blob_log, blob_doh
@@ -223,23 +222,23 @@
 
             <div class="row">
                 <div class="image-box">
-                    <div class="float-img d-none d-sm-block">
+                    <div class="float-img d-none d-lg-block">
                         <img class="double-img" src="rs-save-to-disk-output-Color.png" />
                     </div>
-                    <div class="float-img d-none d-sm-block">
+                    <div class="float-img d-none d-lg-block">
                         <img class="double-img" src="blobs.png"/>
                     </div>
-                    <div class="float-img -lg-">
+                    <div class="float-img d-lg-none">
                         <img class="double-img mobile" src="rs-save-to-disk-output-Color.png" />
                     </div>
-                    <div class="float-img -lg-">
+                    <div class="float-img d-lg-none">
                         <img class="double-img mobile" src="blobs.png"/>
                     </div>
                 </div>
             </div>
 
             <br>
-            <div class="col-12 col-sm-10 offset-sm-1 text-left">
+            <div class="col-12 col-lg-10 offset-lg-1 text-left">
             <p class="text-center">
             [[37.96250624970064, 37.96250624970064]]
             2 objects of close radius to 37.96250624970064 found.

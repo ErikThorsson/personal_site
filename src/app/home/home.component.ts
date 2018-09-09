@@ -371,7 +371,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.innerWidth = window.innerWidth;
         // console.log(this.innerWidth);
         let style: Object = null;
-        if (this.innerWidth < 1000) {
+        if (this.innerWidth < 1024) {
             style = {'padding-bottom': '38rem'};
         } else {
             style = {'padding-bottom': '18rem'};

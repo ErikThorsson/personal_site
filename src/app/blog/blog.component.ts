@@ -8,9 +8,18 @@ import { environment } from '@env/environment';
 })
 export class BlogComponent implements OnInit {
 
-  version: string = environment.version;
+  public innerWidth: any;
 
   constructor() { }
 
   ngOnInit() { }
+
+    // setTextSize() {
+    //     this.innerWidth = window.innerWidth;
+    //     let style: Object = null;
+    //     if (this.innerWidth < 650) {
+    //         style = {'font-size': '36px'};
+    //     }
+    //     return style;
+    // }
 }
