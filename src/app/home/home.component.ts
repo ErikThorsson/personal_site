@@ -13,11 +13,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
     showIt = false;
     invis: string[] = [];
     mobile = false;
+    public innerWidth: any;
 
     constructor() {}
-
-    public innerWidth: any;
-    public innerHeight: any;
 
     ngOnInit() {
         this.innerWidth = window.innerWidth;
@@ -362,9 +360,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     getResumeScreenStyle() {
         this.innerWidth = window.innerWidth;
-        // console.log(this.innerWidth);
         let style: Object = null;
-        if (this.innerWidth < 1000) {
+        if (this.innerWidth < 1024) {
             style = {'font-size': '200%'};
         }
         return style;
@@ -375,7 +372,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
         // console.log(this.innerWidth);
         let style: Object = null;
         if (this.innerWidth < 1000) {
-            style = {'padding-bottom': '40rem'};
+            style = {'padding-bottom': '38rem'};
         } else {
             style = {'padding-bottom': '18rem'};
         }
@@ -398,8 +395,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
         let box: SkillBox = null;
         this.skillBox.forEach(skillArray => {
             skillArray.forEach((skill: SkillBox) => {
-            // console.log('looking for...' + skill.name);
-            // console.log(skill.name === name)
             if (skill.name === name) {
                 box = skill;
             }

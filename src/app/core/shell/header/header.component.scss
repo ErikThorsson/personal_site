@@ -4,13 +4,11 @@
 
 .nav-item{
   color: black;
-}
-
-.nav-item-mobile {
-  color:black;
-  /* Extra small devices (phones, up to 480px) */
-  @media screen and (max-width: 767px) {
-    font-size: 14px;
+  &.mobile {
+    /* Extra small devices (phones, up to 480px) */
+    @media screen and (max-width: 1024px) {
+      font-size: 14px;
+    }
   }
 }
 
