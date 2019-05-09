@@ -4,7 +4,7 @@
       <div class="font text-center">Erik Orndahl</div>
       <div class="font text-center">Developer, Technologist</div>
       <br>
-      <img class="headshot centered" src="me.jpg"/>
+      <img class="headshot centered" src="me.jpg" />
       <br>
       <div class="font text-center">Atlanta, GA</div>
     </div>
@@ -16,9 +16,10 @@
     </div>
     <div class="col-12">
       <p class="intro">
-        Erik is a full stack developer with experience developing and maintaining Spring Boot APIs hosted on AWS, Angular web apps, Python applications,
-        large-scale scripting efforts, and database administration and maintenance across various data stores. He is passionate and focused towards finding effective,
-        efficient, and novel solutions to problems at hand.
+        Erik is a full stack developer with experience developing and maintaining software hosted on AWS,
+        Angular 7 web apps, Python applications, IoT software, and Spring Boot APIs.
+        He is passionate about finding elegant solutions to problems in innovative spaces and
+        creating beautiful, responsive, and intuitive interfaces.
       </p>
     </div>
   </div>
@@ -33,112 +34,139 @@
       </div>
 
       <br>
-      <div class="skillBox col-12" [ngStyle] = "getSkillboxStyle()">
-          <div *ngFor="let skillRow of skillBox">
-            <div *ngFor="let skill of skillRow" [ngStyle]="isInvisible(skill.name)">
-              <div *ngIf="skill.fa == false">
-                <div class="skillIcon">
-                  <div id={{skill.name}} [ngStyle]="getStyle(skill.name)">
-                    <img src={{skill.img}} class={{skill.imgClass}}>
-                    <br>
-                    {{skill.name}}
-                  </div>
+      <div class="skillBox col-12" [ngStyle]="getSkillboxStyle()">
+        <div *ngFor="let skillRow of skillBox">
+          <div *ngFor="let skill of skillRow" [ngStyle]="isInvisible(skill.name)">
+            <div *ngIf="skill.fa == false">
+              <div class="skillIcon">
+                <div id={{skill.name}} [ngStyle]="getStyle(skill.name)">
+                  <img src={{skill.img}} class={{skill.imgClass}}>
+                  <br>
+                  {{skill.name}}
                 </div>
               </div>
-              <div *ngIf="skill.fa == true">
-                <div class="skillIcon">
-                  <div id={{skill.name}} [ngStyle]="getStyle(skill.name)">
-                    <i class={{skill.imgClass}}></i>
-                    <br>
-                    {{skill.name}}
-                  </div>
+            </div>
+            <div *ngIf="skill.fa == true">
+              <div class="skillIcon">
+                <div id={{skill.name}} [ngStyle]="getStyle(skill.name)">
+                  <i class={{skill.imgClass}}></i>
+                  <br>
+                  {{skill.name}}
                 </div>
               </div>
             </div>
           </div>
-          <td>
-          </td>
+        </div>
+        <td>
+        </td>
       </div>
     </div>
   </div>
 
   <div class="col-12 tile bottom">
-  <!--<div class="full-screen row col-12 tile bottom d-lg-none">-->
+    <!--<div class="full-screen row col-12 tile bottom d-lg-none">-->
     <!--<div class="col-6 offset-3 d-none d-lg-block">-->
-      <!--<button class="button col-4 offset-4 text-center"(click)="showResume()">Click for Resume</button>-->
+    <!--<button class="button col-4 offset-4 text-center"(click)="showResume()">Click for Resume</button>-->
     <!--</div>-->
     <!--<div class="col-12 d-lg-none">-->
-      <!--<button class="button col-4 offset-4 text-center"(click)="showResume()">Click for Resume</button>-->
+    <!--<button class="button col-4 offset-4 text-center"(click)="showResume()">Click for Resume</button>-->
     <!--</div>-->
 
-        <div class="resume col-12 text-left">
-          <div class="col-12 col-lg-8 offset-lg-2" [ngStyle] = "getResumeScreenStyle()">
-            <br><br>
-            <div class="text-center"><b>Software Development – Chick-fil-A, Inc.</b></div>
-            <div class="text-center">Experient Group Consultant</div>
+    <div class="resume col-12 text-left">
+      <div class="col-12 col-lg-8 offset-lg-2" [ngStyle]="getResumeScreenStyle()">
+        <br><br>
+        <div class="text-center"><b>Software Development – Chick-fil-A, Inc.</b></div>
+        <div class="text-center">Experient Group Consultant</div>
 
-            <br>
-            <div class="text-center"><b>Capacity Innovation Pod</b></div>
+        <br>
+        <div class="text-center"><b>Capacity Innovation Pod</b></div>
 
-            <li>
-              Developed code for measuring the volume of objects with an Intel RealSense 3D camera.
-            </li>
-
-            <li>
-              Developed a diagnostic dashboard of IoT devices with an Angular web app
-              powered by a Spring Boot backend with an MQTT communication layer.
-            </li>
-
-            <li>
-              Developed an Angular chrome extension that communicates with other devices via MQTT.
-            </li>
-            <br>
-            <div class="text-center"><b>CFA One App</b></div>
-
-            <br>
-            <div class="experience-title text-left">Developed software for merging CRN customer accounts</div>
-            <div class="experience-box">
-              <li>One, A-List, and Cow Calendar</li>
-              <li>Updated various data stores to achieve this: Dynamo DB, an LDAP Directory, and a third-party database</li>
-            </div>
-
-            <br>
-            <div class="experience-title text-left">Enhanced the CFA One App email service API from AWS SES to MessageGears</div>
-            <div class="experience-box">
-            <li>
-              Upgraded the Java code, converted the logic of HTML templates (from thymeleaf to freemarker), and
-              moved the templates to a company-controlled MessageGears server for easier maintenance and for internal email processing.
-            </li>
-            </div>
-
-            <br>
-            <div class="experience-title text-left">Enhanced CFA One App requests to an external API with SQS functionality</div>
-            <div class="experience-box">
-            <li>
-              Requests made more fault tolerant by sending them to a queue service for processing. This AWS service
-              has built in retry logic in case of request timeout and stores unprocessed requests in case of external server downtime.
-            </li>
-            </div>
-
-            <br>
-            <div class="experience-title text-left">Created scripts for updating Loyalty Program databases</div>
-            <div class="experience-box">
-            <li>Created a daily cron job that updated rows in the Loyalty Program for analysis purposes</li>
-            <li>Created a weekly cron job that synchronized data between the Dynamo Loyalty table and a third-party database.</li>
-            </div>
-
-            <br>
-            <div class="experience-title text-left">Created an automated process for the 2017 CFA One September Mobile Order Giveaway</div>
-            <div class="experience-box">
-            <li>
-              Loaded promotional treats onto 8,000,000+ CFA One accounts in the NCR Aloha loyalty program database.
-            </li>
-            <li>
-              AWS Lambda scripts written in python to automatically import batches and to monitor the process to prevent strain on the servers.
-            </li>
-            </div>
-          </div>
-          <div class="col-6 offset-3 text-center"><a href="resume.pdf" download><i class="far fa-file"></i> Download.</a></div>
+        <div class="experience-title text-left">Automated Holding Assistant</div>
+        <div class="experience-box">
+          <li>
+            Developed an app for the smart kitchen to automate kitchen timers and track waste (using an Intel RealSense
+            camera). Tech stack: Angular 7 client, Python backend, MQTT communication layer.
+          </li>
+          <li>
+            <a href="https://medium.com/@cfatechblog/edge-ai-in-a-smarter-chick-fil-a-6e56fe026154">
+              https://medium.com/@cfatechblog/edge-ai-in-a-smarter-chick-fil-a-6e56fe026154
+            </a>
+          </li>
         </div>
+
+        <br>
+        <div class="experience-title text-left">Smart Kitchen Dashboard</div>
+        <div class="experience-box">
+          <li>
+            Developed an Angular 7 dashboard to analyze the data from our kitchen devices in real time. Graphing done
+            with C3.js and D3.js. Serverless architecture: S3 hosted web app, Python backend running in Fargate, with
+            API Gateway serving the processed data from Dynamo.
+          </li>
+        </div>
+
+        <br>
+        <div class="experience-title text-left">Diagnostic Tools</div>
+        <div class="experience-box">
+          <li>
+            Developed diagnostic tools for our IoT devices using Elasticsearch, Filebeat, and Kibana. Loggers and
+            heartbeats streamed to the cloud where they were monitored by Kibana watchers (alerts broadcast to Slack).
+          </li>
+        </div>
+        <br>
+        <div class="text-center"><b>CFA One App</b></div>
+
+        <br>
+        <div class="experience-title text-left">Developed software for merging CRN customer accounts</div>
+        <div class="experience-box">
+          <li>Updated various data stores to achieve this: Dynamo DB, an LDAP Directory, and a third-party database</li>
+        </div>
+
+        <br>
+        <div class="experience-title text-left">Enhanced the CFA One App email service API from AWS SES to MessageGears
+        </div>
+        <div class="experience-box">
+          <li>
+            Upgraded the Java code, converted the logic of HTML templates (from thymeleaf to freemarker), and
+            moved the templates to a company-controlled MessageGears server for easier maintenance and for internal
+            email processing.
+          </li>
+        </div>
+
+        <br>
+        <div class="experience-title text-left">Enhanced CFA One App requests to an external API with SQS functionality
+        </div>
+        <div class="experience-box">
+          <li>
+            Requests made more fault tolerant by sending them to a queue service for processing. This AWS service
+            has built in retry logic in case of request timeout and stores unprocessed requests in case of external
+            server downtime.
+          </li>
+        </div>
+
+        <br>
+        <div class="experience-title text-left">Created scripts for updating Loyalty Program databases</div>
+        <div class="experience-box">
+          <li>Created a daily cron job that updated rows in the Loyalty Program for analysis purposes</li>
+          <li>Created a weekly cron job that synchronized data between the Dynamo Loyalty table and a third-party
+            database.</li>
+        </div>
+
+        <br>
+        <div class="experience-title text-left">Created an automated process for the 2017 CFA One September Mobile Order
+          Giveaway</div>
+        <div class="experience-box">
+          <li>
+            Loaded promotional treats onto 8,000,000+ CFA One accounts in the NCR Aloha loyalty program database.
+          </li>
+          <li>
+            AWS Lambda scripts written in python to automatically import batches and to monitor the process to prevent
+            strain on the servers.
+          </li>
+        </div>
+      </div>
+      <br>
+      <div class="col-6 offset-3 text-center"><a href="resume.pdf" download><i class="far fa-file"></i> Download.</a>
+      </div>
+    </div>
   </div>
 </div>
